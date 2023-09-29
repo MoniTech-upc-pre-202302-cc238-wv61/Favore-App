@@ -13,6 +13,9 @@
         android:theme="@style/Theme.FavoreApp"
         tools:targetApi="31">
         <activity
+            android:name=".views.ServiceDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.ConfigurePortfolioActivity"
             android:exported="false" />
         <activity
