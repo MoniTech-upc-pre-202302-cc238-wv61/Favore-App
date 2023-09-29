@@ -20,6 +20,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginEnd="8dp"
+            android:id="@+id/backButton"
             android:background="@android:color/transparent"
             android:contentDescription="Back button"
             android:src="@drawable/baseline_arrow_back_24" />
@@ -206,7 +207,7 @@ amet feugiat nulla. Sed euismod, nisl eget aliquam"
                 massa ac gravida euismod, libero ex tristique erat, in
                 tristique velit nisi eu odio. Aenean at justo ex. Nullam sit
                 amet feugiat nulla. Sed euismod, nisl eget aliquam"
-                android:textColor="@color/material_dynamic_neutral_variant50" " />
+                android:textColor="@color/material_dynamic_neutral_variant50"/>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>

@@ -1,7 +1,8 @@
-package com.monitech.favore_app
+package com.monitech.favore_app.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.monitech.favore_app.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
