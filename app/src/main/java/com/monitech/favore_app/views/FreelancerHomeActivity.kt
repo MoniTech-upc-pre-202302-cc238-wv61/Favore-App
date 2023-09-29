@@ -1,5 +1,6 @@
 package com.monitech.favore_app.views
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -15,13 +16,16 @@ class FreelancerHomeActivity : AppCompatActivity() {
         val btnConfigurePortfolio:LinearLayout = findViewById(R.id.btnConfigurePortfolio)
 
         btnAddNewFavor.setOnClickListener(){
-
+            val instance = Intent(this, AddFavorActivity::class.java)
+            startActivity(instance)
         }
         btnConfigureAvailability.setOnClickListener(){
-
+            val instance = Intent(this, ConfigureAvailabilityActivity::class.java)
+            startActivity(instance)
         }
         btnConfigurePortfolio.setOnClickListener(){
-
+            val instance = Intent(this, ConfigurePortfolioActivity::class.java)
+            startActivity(instance)
         }
     }
 }
