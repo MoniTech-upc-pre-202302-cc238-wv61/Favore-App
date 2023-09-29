@@ -17,15 +17,15 @@ class FreelancerHomeActivity : AppCompatActivity() {
 
         btnAddNewFavor.setOnClickListener(){
             val instance = Intent(this, AddFavorActivity::class.java)
-            startActivity(intent)
+            startActivity(instance)
         }
         btnConfigureAvailability.setOnClickListener(){
             val instance = Intent(this, ConfigureAvailabilityActivity::class.java)
-            startActivity(intent)
+            startActivity(instance)
         }
         btnConfigurePortfolio.setOnClickListener(){
             val instance = Intent(this, ConfigurePortfolioActivity::class.java)
-            startActivity(intent)
+            startActivity(instance)
         }
     }
 }
