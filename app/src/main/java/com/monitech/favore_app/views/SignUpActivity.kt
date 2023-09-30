@@ -26,5 +26,9 @@ class SignUpActivity : AppCompatActivity() {
         val btnClient: Button = findViewById(R.id.btnClient)
         val btnFreelancer: Button = findViewById(R.id.btnFreelancer)
 
+
+        val btnSignUp: Button = findViewById(R.id.btnSignUp)
+        btnSignUp.setOnClickListener(){
+        }
     }
 }
