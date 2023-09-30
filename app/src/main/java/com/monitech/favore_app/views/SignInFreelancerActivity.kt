@@ -42,12 +42,12 @@ class SignInFreelancerActivity : AppCompatActivity() {
             )
 
             loginService.login(userLoginDTO) { user, message ->
-                if (user != null && user.type!="FREELANCER") {
-                    if (user.type!="CLIENT") {
+                if (user != null) {
+                    if (user.type!="FREELANCER") {
                         val txtError: TextView = findViewById(R.id.txtError)
-                        txtError.text="You are not a client"
+                        txtError.text="You are not a freelancer"
                     } else {
-                        val instance = Intent(this, ClientHomeActivity::class.java)
+                        val instance = Intent(this, FreelancerHomeActivity::class.java)
                         startActivity(instance)
                     }
                 } else {
