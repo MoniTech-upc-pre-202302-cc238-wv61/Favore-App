@@ -6,6 +6,7 @@ import com.monitech.favore_app.R
 
 import android.content.Intent
 import android.view.View
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class SearchServiceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,5 +18,35 @@ class SearchServiceActivity : AppCompatActivity() {
             val intent = Intent(this, SearchResultsActivity::class.java)
             startActivity(intent)
         }
+
+        val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
+
+        bottomNavigation.selectedItemId = R.id.navigation_home
+        bottomNavigation.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_home -> {
+                    startActivity(Intent(this, ClientHomeActivity::class.java))
+                    finish()
+                }
+                R.id.navigation_orders -> {
+                    startActivity(Intent(this, FreelancerFavorsManagementActivity::class.java))
+                    finish()
+                }
+                R.id.navigation_search -> {
+                    startActivity(Intent(this, SearchServiceActivity::class.java))
+                    finish()
+                }
+                R.id.navigation_inbox -> {
+                    startActivity(Intent(this, AddFavorActivity::class.java))
+                    finish()
+                }
+                R.id.navigation_user -> {
+                    startActivity(Intent(this, SignInClientActivity::class.java))
+                    finish()
+                }
+            }
+            true
+        }
+
     }
 }
