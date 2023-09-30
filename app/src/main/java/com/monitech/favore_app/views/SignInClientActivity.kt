@@ -7,10 +7,16 @@ import android.widget.Button
 import android.widget.ImageButton
 import com.monitech.favore_app.R
 
-class SignInFreelancerActivity : AppCompatActivity() {
+class SignInClientActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_in_freelancer)
+        setContentView(R.layout.activity_sign_in_client)
+
+        val btnSignIn: Button = findViewById(R.id.btnFreelancer)
+        btnSignIn.setOnClickListener(){
+            val instance = Intent(this, SignInFreelancerActivity::class.java)
+            startActivity(instance)
+        }
 
         val btnReturn: ImageButton = findViewById(R.id.btnReturn)
         btnReturn.setOnClickListener(){
