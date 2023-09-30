@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.LinearLayout
+import com.google.android.material.search.SearchBar
 import com.monitech.favore_app.R
 
 class FreelancerHomeActivity : AppCompatActivity() {
@@ -16,6 +17,13 @@ class FreelancerHomeActivity : AppCompatActivity() {
         val btnConfigurePortfolio:LinearLayout = findViewById(R.id.btnConfigurePortfolio)
 
         val btnViewFreelancerFavors:LinearLayout = findViewById(R.id.btnViewFreelancerFavors)
+
+        val searchBar = findViewById<SearchBar>(R.id.searchBar)
+
+        searchBar.setOnClickListener {
+            val intent = Intent(this, SearchServiceActivity::class.java)
+            startActivity(intent)
+        }
 
         btnAddNewFavor.setOnClickListener(){
             val instance = Intent(this, AddFavorActivity::class.java)
