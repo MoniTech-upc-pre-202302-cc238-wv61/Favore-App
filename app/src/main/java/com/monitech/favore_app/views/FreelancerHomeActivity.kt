@@ -15,6 +15,8 @@ class FreelancerHomeActivity : AppCompatActivity() {
         val btnConfigureAvailability:LinearLayout = findViewById(R.id.btnConfigureAvailability)
         val btnConfigurePortfolio:LinearLayout = findViewById(R.id.btnConfigurePortfolio)
 
+        val btnViewFreelancerFavors:LinearLayout = findViewById(R.id.btnViewFreelancerFavors)
+
         btnAddNewFavor.setOnClickListener(){
             val instance = Intent(this, AddFavorActivity::class.java)
             startActivity(instance)
@@ -25,6 +27,10 @@ class FreelancerHomeActivity : AppCompatActivity() {
         }
         btnConfigurePortfolio.setOnClickListener(){
             val instance = Intent(this, ConfigurePortfolioActivity::class.java)
+            startActivity(instance)
+        }
+        btnViewFreelancerFavors.setOnClickListener(){
+            val instance = Intent(this, FreelancerFavorsManagementActivity::class.java)
             startActivity(instance)
         }
     }
