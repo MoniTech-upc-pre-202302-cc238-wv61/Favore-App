@@ -10,5 +10,5 @@ import retrofit2.http.POST
 interface UserHolderApi {
 
     @POST("users")
-    fun login(@Body userCreateDTO: UserCreateDTO):Call<User>
+    fun createUser(@Body userCreateDTO: UserCreateDTO):Call<User>
 }
