@@ -46,15 +46,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="140dp">
+        android:paddingTop="100dp">
 
         <TextView
-            android:id="@+id/freelancerServiceName"
+            android:id="@+id/signInName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="16dp"
             android:paddingVertical="8dp"
-            android:text="Sign In"
+            android:text="Register"
             android:gravity="center"
             android:textColor="@color/md_theme_light_onPrimaryContainer"
             android:textSize="48dp"
@@ -69,21 +69,29 @@
         android:gravity="center_horizontal"
         android:paddingHorizontal="20dp">
 
-        <TextView
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Client"
             android:textSize="15dp"
-            android:text="Are you a freelancer?"
-            android:paddingHorizontal="16dp"/>
+            android:layout_marginRight="10dp"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/md_theme_light_secondary"
+            android:textStyle=""
+            app:strokeColor="@color/gray"
+            app:strokeWidth="1dp"
+            android:id="@+id/btnClient"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Go to freelancer"
+            android:text="Freelancer"
             android:textSize="15dp"
             android:backgroundTint="@color/white"
             android:textColor="@color/md_theme_light_secondary"
             android:textStyle=""
+            app:strokeColor="@color/gray"
+            app:strokeWidth="1dp"
             android:id="@+id/btnFreelancer"/>
 
 
@@ -95,6 +103,19 @@
         android:orientation="vertical"
         android:paddingTop="20dp"
         android:paddingHorizontal="20dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameTextField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter you name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailTextField"
@@ -110,7 +131,6 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:paddingTop="20dp"
             android:id="@+id/passwordTextField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -123,25 +143,17 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:paddingVertical="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="15dp"
-            android:gravity="center"
-            android:text="Forgot your pasword?"
-            android:paddingHorizontal="16dp"/>
-
         <Button
+            android:layout_marginTop="20dp"
             android:paddingTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign In"
+            android:text="Register"
             android:backgroundTint="@color/seed"
             android:id="@+id/btnSingIn"/>
 
         <TextView
-            android:paddingTop="100dp"
+            android:paddingTop="120dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15dp"
