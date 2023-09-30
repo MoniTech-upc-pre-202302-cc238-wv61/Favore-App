@@ -4,8 +4,6 @@ import android.content.Intent
 import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
@@ -16,8 +14,6 @@ import com.monitech.favore_app.dto.UserCreateDTO
 import com.monitech.favore_app.services.UserService
 
 class SignUpActivity : AppCompatActivity() {
-
-    private val btnSignUp: Button = findViewById(R.id.btnSignUp)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
@@ -66,6 +62,7 @@ class SignUpActivity : AppCompatActivity() {
         val emailTextField: TextInputLayout = findViewById(R.id.emailTextField)
         val passwordTextField: TextInputLayout = findViewById(R.id.passwordTextField)
 
+        val btnSignUp: Button = findViewById(R.id.btnSignUp)
         btnSignUp.setOnClickListener(){
             val userCreateDTO = UserCreateDTO(
                 firstNameTextField.editText?.text.toString(),
