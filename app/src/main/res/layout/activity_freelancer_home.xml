@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".views.ClientHomeActivity"
-    android:paddingVertical="16dp">
+    android:paddingTop="16dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
