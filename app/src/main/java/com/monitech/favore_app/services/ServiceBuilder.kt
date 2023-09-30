@@ -8,7 +8,7 @@ object ServiceBuilder {
     private val client = OkHttpClient.Builder().build()
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("https://favore-api.onrender.com/api/favore/v1/")
+        .baseUrl("https://favore-rest-api.zeabur.app/api/favore/v1/")
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
         .build()
