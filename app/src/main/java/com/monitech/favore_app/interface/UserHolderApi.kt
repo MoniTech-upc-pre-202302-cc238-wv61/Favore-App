@@ -1,5 +1,6 @@
 package com.monitech.favore_app.`interface`
 
+import com.monitech.favore_app.dto.UserCreateDTO
 import com.monitech.favore_app.dto.UserLoginDTO
 import com.monitech.favore_app.models.User
 import retrofit2.Call
