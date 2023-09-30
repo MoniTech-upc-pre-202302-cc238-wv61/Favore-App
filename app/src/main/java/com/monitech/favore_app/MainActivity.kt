@@ -4,9 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import com.monitech.favore_app.views.AddFavorActivity
 import com.monitech.favore_app.views.ClientHomeActivity
 import com.monitech.favore_app.views.FreelancerHomeActivity
+import com.monitech.favore_app.views.StartActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         val btnDemoFreelancerHomepage:Button = findViewById(R.id.btnDemoFreelancerHomepage)
         val btnDemoClientHomepage: Button = findViewById(R.id.btnDemoClientHomepage)
+        val btnDemoLogin: Button = findViewById(R.id.btnDemoLogin)
 
         btnDemoFreelancerHomepage.setOnClickListener(){
             val instance = Intent(this, FreelancerHomeActivity::class.java)
@@ -22,6 +23,11 @@ class MainActivity : AppCompatActivity() {
         }
         btnDemoClientHomepage.setOnClickListener(){
             val instance = Intent(this, ClientHomeActivity::class.java)
+            startActivity(instance)
+        }
+
+        btnDemoLogin.setOnClickListener(){
+            val instance = Intent(this, StartActivity::class.java)
             startActivity(instance)
         }
     }
