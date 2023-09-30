@@ -3,6 +3,7 @@ package com.monitech.favore_app.views
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
@@ -48,7 +49,8 @@ class SignInClientActivity : AppCompatActivity() {
             )
 
             loginService.login(userLoginDTO) { user, message ->
-                if (user != null) {
+                if (user != null && user.type!="CLIENT") {
+                    Log("User type: ${user.type}")
                     val instance = Intent(this, ClientHomeActivity::class.java)
                     startActivity(instance)
                 } else {
