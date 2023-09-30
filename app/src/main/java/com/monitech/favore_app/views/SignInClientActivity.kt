@@ -49,10 +49,15 @@ class SignInClientActivity : AppCompatActivity() {
             )
 
             loginService.login(userLoginDTO) { user, message ->
-                if (user != null && user.type!="CLIENT") {
-                    Log("User type: ${user.type}")
-                    val instance = Intent(this, ClientHomeActivity::class.java)
-                    startActivity(instance)
+                if (user != null) {
+                    if (user.type!="CLIENT") {
+                        val txtError: TextView = findViewById(R.id.txtError)
+                        txtError.text="You are not a client"
+                    } else {
+                        val instance = Intent(this, ClientHomeActivity::class.java)
+                        startActivity(instance)
+                    }
+
                 } else {
                     val txtError: TextView = findViewById(R.id.txtError)
                     txtError.text=message
