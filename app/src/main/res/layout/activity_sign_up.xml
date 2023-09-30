@@ -46,7 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="100dp">
+        android:paddingTop="80dp">
 
         <TextView
             android:id="@+id/signInName"
@@ -106,10 +106,23 @@
         android:paddingHorizontal="20dp">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/nameTextField"
+            android:id="@+id/firstNameTextField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter you name">
+            android:hint="Enter your first name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lastNameTextField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your last name">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -122,7 +135,7 @@
             android:id="@+id/emailTextField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter you email">
+            android:hint="Enter your email">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -135,7 +148,7 @@
             android:id="@+id/passwordTextField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter you password">
+            android:hint="Enter your password">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -154,7 +167,16 @@
             android:id="@+id/btnSignUp"/>
 
         <TextView
-            android:paddingTop="120dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/md_theme_light_error"
+            android:id="@+id/txtError"
+            />
+
+        <TextView
+            android:paddingTop="80dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15dp"
