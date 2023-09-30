@@ -24,6 +24,9 @@
             android:name=".views.NewRequestActivity"
             android:exported="false" />
         <activity
+            android:name=".views.SearchResultsActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.SearchServiceActivity"
             android:exported="false" />
         <activity
