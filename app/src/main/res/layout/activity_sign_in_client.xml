@@ -138,7 +138,7 @@
             android:layout_height="wrap_content"
             android:text="Sign In"
             android:backgroundTint="@color/seed"
-            android:id="@+id/btnSingIn"/>
+            android:id="@+id/btnSignIn"/>
 
         <TextView
             android:paddingTop="100dp"

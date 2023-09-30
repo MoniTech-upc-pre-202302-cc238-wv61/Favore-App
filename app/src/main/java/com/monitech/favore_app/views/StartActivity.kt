@@ -17,5 +17,12 @@ class StartActivity : AppCompatActivity() {
             val instance = Intent(this, SignInClientActivity::class.java)
             startActivity(instance)
         }
+
+        val btnSignUp: Button = findViewById(R.id.btnSignUpWithEmail)
+
+        btnSignUp.setOnClickListener(){
+            val instance = Intent(this, SignUpActivity::class.java)
+            startActivity(instance)
+        }
     }
 }

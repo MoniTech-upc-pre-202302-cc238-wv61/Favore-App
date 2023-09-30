@@ -22,5 +22,11 @@ class SignInFreelancerActivity : AppCompatActivity() {
             val instance = Intent(this, SignUpActivity::class.java)
             startActivity(instance)
         }
+
+        val btnSignIn: Button = findViewById(R.id.btnSignIn)
+        btnSignIn.setOnClickListener(){
+            val instance = Intent(this, FreelancerHomeActivity::class.java)
+            startActivity(instance)
+        }
     }
 }

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.ClientHomeActivity"
+    tools:context=".views.StartActivity"
     android:paddingVertical="16dp">
     <LinearLayout
         android:layout_width="match_parent"
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:text="Register with email"
             android:backgroundTint="@color/seed"
-            android:id="@+id/btnLoginWithEmail"/>
+            android:id="@+id/btnSignUpWithEmail"/>
     </LinearLayout>
 
     <LinearLayout
