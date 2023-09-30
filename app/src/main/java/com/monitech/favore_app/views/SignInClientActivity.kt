@@ -5,12 +5,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
+import com.google.android.material.textfield.TextInputLayout
 import com.monitech.favore_app.R
+import com.monitech.favore_app.dto.UserLoginDTO
+import com.monitech.favore_app.services.LoginService
 
 class SignInClientActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in_client)
+
+        val loginService = LoginService()
 
         val btnFreelancer: Button = findViewById(R.id.btnFreelancer)
         btnFreelancer.setOnClickListener(){
@@ -31,8 +37,25 @@ class SignInClientActivity : AppCompatActivity() {
 
         val btnSignIn: Button = findViewById(R.id.btnSignIn)
         btnSignIn.setOnClickListener(){
-            val instance = Intent(this, ClientHomeActivity::class.java)
-            startActivity(instance)
+
+            //get the value of the text field inputs
+            val emailField: TextInputLayout = findViewById(R.id.emailTextField)
+            val passwordField: TextInputLayout = findViewById(R.id.passwordTextField)
+
+            val userLoginDTO = UserLoginDTO(
+                emailField.editText?.text.toString(),
+                passwordField.editText?.text.toString()
+            )
+
+            loginService.login(userLoginDTO) { user, message ->
+                if (user != null) {
+                    val instance = Intent(this, ClientHomeActivity::class.java)
+                    startActivity(instance)
+                } else {
+                    val txtError: TextView = findViewById(R.id.txtError)
+                    txtError.text=message
+                }
+            }
         }
     }
 }

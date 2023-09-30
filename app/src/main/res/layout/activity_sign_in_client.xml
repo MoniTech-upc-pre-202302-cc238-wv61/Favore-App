@@ -141,7 +141,16 @@
             android:id="@+id/btnSignIn"/>
 
         <TextView
-            android:paddingTop="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/md_theme_light_error"
+            android:id="@+id/txtError"
+            />
+
+        <TextView
+            android:paddingTop="80dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15dp"
