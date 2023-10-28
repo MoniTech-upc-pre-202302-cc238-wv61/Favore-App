@@ -22,7 +22,7 @@ interface PostHolderApi {
     fun createPost(@Body post:Post):Call<Post>
 
     @PUT("posts/{id}")
-    fun updatePost(@Path("id")id:Int, @Body updatedPost:Post):Call<Post>
+    fun updatePost(@Path("id") id: Int, @Body updatedPost:Post):Call<Post>
 
     @PUT("posts/{id}")
     fun deletePost(@Path("id")id:Int):Call<Post>
