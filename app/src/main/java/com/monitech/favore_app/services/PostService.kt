@@ -39,4 +39,17 @@ class PostService {
             }
         )
     }
+    fun updatePost(postId: Int, updatedPost: Post, onResult: (Post?) -> Unit){
+        retrofit.updatePost(postId, updatedPost).enqueue(
+            object: Callback<Post> {
+                override fun onResponse( call: Call<Post>, response: Response<Post>) {
+                    val updatedPost = response.body()
+                    onResult(updatedPost)
+                }
+                override fun onFailure(call: Call<Post>, t: Throwable) {
+                    t?.printStackTrace()
+                }
+            }
+        )
+    }
 }
