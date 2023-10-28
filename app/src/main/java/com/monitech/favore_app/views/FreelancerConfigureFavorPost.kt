@@ -5,9 +5,12 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
+import android.widget.TextView
 import com.monitech.favore_app.R
 import com.monitech.favore_app.models.Post
 import com.monitech.favore_app.services.PostService
+import org.w3c.dom.Text
 
 class FreelancerConfigureFavorPost : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +22,14 @@ class FreelancerConfigureFavorPost : AppCompatActivity() {
         val description = intent.getStringExtra("description")
         val budgetAmount = intent.getDoubleExtra("budgetAmount", 0.0)
 
-        postId.setText(post_id.toString())
+        val postTitle = findViewById<EditText>(R.id.configureFavorTitle)
+        val postDescription = findViewById<EditText>(R.id.configureFavorDescription)
+        val postBudgetAmount = findViewById<EditText>(R.id.configureFavorBudgetAmount)
+        val postId = findViewById<TextView>(R.id.favorPostId)
+        val btnUpdateFavorPost = findViewById<Button>(R.id.btnSaveChangesFavorPost)
+
+        val currentPostId = post_id.toString().toInt()
+        postId.setText("Post id: ${post_id.toString()}")
         postTitle.setText(title)
         postDescription.setText(description)
         postBudgetAmount.setText(budgetAmount.toString())
@@ -40,7 +50,10 @@ class FreelancerConfigureFavorPost : AppCompatActivity() {
             )
             postService.updatePost(post_id, post) { post ->
                 if (post != null) {
+                    Toast.makeText(this, "Post updated successfully", Toast.LENGTH_SHORT).show()
                     finish()
+                } else {
+                    Toast.makeText(this, "Failed to update post", Toast.LENGTH_SHORT).show()
                 }
             }
         }
