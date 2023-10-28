@@ -48,6 +48,8 @@ class SearchResultsActivity : AppCompatActivity() {
         }
 
         favorPostRecycler.adapter = FavorPostAdapter(posts).apply {
+
+            // This is the code that is executed when the user clicks on a post
             setOnItemClickListener { post ->
                 val intent = Intent(this@SearchResultsActivity, ServiceDetailsActivity::class.java)
                 intent.putExtra("post_id", post.post_id)
