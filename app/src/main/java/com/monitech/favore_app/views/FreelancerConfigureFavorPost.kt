@@ -14,12 +14,6 @@ class FreelancerConfigureFavorPost : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_freelancer_configure_favor_post)
 
-        val postTitle = findViewById<EditText>(R.id.configureFavorTitle)
-        val postDescription = findViewById<EditText>(R.id.configureFavorDescription)
-        val postBudgetAmount = findViewById<EditText>(R.id.configureFavorBudgetAmount)
-        val postId = findViewById<TextView>(R.id.favorPostId)
-        val btnUpdateFavorPost = findViewById<Button>(R.id.btnSaveChangesFavorPost)
-
         val post_id = intent.getIntExtra("post_id", 0)
         val title = intent.getStringExtra("title")
         val description = intent.getStringExtra("description")
