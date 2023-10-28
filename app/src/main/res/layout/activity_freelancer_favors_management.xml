@@ -19,10 +19,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/recyclerFreelancerFavorPost" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtFreelancerNoFavors" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

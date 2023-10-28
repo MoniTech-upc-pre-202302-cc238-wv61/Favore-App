@@ -24,6 +24,7 @@ class FreelancerFavorsManagementActivity : AppCompatActivity() {
 
         val favorPostRecycler:RecyclerView = findViewById(R.id.recyclerFreelancerFavorPost)
         val posts: List<Post>
+
         postService.getAllPosts { posts ->
             if (posts != null) {
                 favorPostRecycler.layoutManager = LinearLayoutManager(applicationContext)

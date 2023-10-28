@@ -41,7 +41,7 @@ class FreelancerConfigureFavorPost : AppCompatActivity() {
 
             val keywords: List<String> = emptyList()
             val post = Post(
-                currentPostId,
+                post_id,
                 postTitle.text.toString(),
                 postDescription.text.toString(),
                 keywords,
