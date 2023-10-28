@@ -6,7 +6,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import android.widget.TextView
 import com.monitech.favore_app.R
 import com.monitech.favore_app.models.Post
 import com.monitech.favore_app.services.PostService
