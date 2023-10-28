@@ -35,10 +35,10 @@ class PostService {
                 override fun onFailure(call: Call<List<Post>>, t: Throwable) {
                     t?.printStackTrace()
                 }
-
             }
         )
     }
+
     fun updatePost(postId: Int, updatedPost: Post, onResult: (Post?) -> Unit){
         retrofit.updatePost(postId, updatedPost).enqueue(
             object: Callback<Post> {

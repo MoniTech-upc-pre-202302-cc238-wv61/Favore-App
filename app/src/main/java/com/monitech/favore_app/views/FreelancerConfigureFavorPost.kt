@@ -2,7 +2,9 @@ package com.monitech.favore_app.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import com.monitech.favore_app.R
 import com.monitech.favore_app.models.Post
 import com.monitech.favore_app.services.PostService
@@ -15,8 +17,8 @@ class FreelancerConfigureFavorPost : AppCompatActivity() {
         val postTitle = findViewById<EditText>(R.id.configureFavorTitle)
         val postDescription = findViewById<EditText>(R.id.configureFavorDescription)
         val postBudgetAmount = findViewById<EditText>(R.id.configureFavorBudgetAmount)
-        val postId = findViewById<EditText>(R.id.favorPostId)
-        val btnUpdateFavorPost = findViewById<EditText>(R.id.btnSaveChangesFavorPost)
+        val postId = findViewById<TextView>(R.id.favorPostId)
+        val btnUpdateFavorPost = findViewById<Button>(R.id.btnSaveChangesFavorPost)
 
         val post_id = intent.getIntExtra("post_id", 0)
         val title = intent.getStringExtra("title")

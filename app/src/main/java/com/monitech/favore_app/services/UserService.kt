@@ -12,9 +12,11 @@ class UserService {
     private val retrofit = ServiceBuilder.buildService(UserHolderApi::class.java)
 
     fun createUser(user: UserCreateDTO, onResult: (User?, String?) -> Unit){
+
         retrofit.createUser(user).enqueue(
             object: Callback<User> {
                 override fun onResponse(call: Call<User>, response: Response<User>) {
+
                     if (response.isSuccessful) {
                         val addedUser = response.body()
                         onResult(addedUser,null)
