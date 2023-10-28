@@ -1,6 +1,8 @@
 package com.monitech.favore_app.services
 
 import Interface.PostHolderApi
+import android.util.Log
+import android.widget.Toast
 import com.monitech.favore_app.models.Post
 import retrofit2.Call
 import retrofit2.Callback
@@ -43,11 +45,19 @@ class PostService {
         retrofit.updatePost(postId, updatedPost).enqueue(
             object: Callback<Post> {
                 override fun onResponse( call: Call<Post>, response: Response<Post>) {
-                    val updatedPost = response.body()
-                    onResult(updatedPost)
+                    if (response.isSuccessful) {
+                        val updatedPost = response.body()
+                        onResult(updatedPost)
+                    } else {
+                        val statusCode = response.code()
+                        Log.e("UpdatePostError", "HTTP Error: $statusCode")
+                        onResult(null)
+                    }
                 }
                 override fun onFailure(call: Call<Post>, t: Throwable) {
                     t?.printStackTrace()
+                    Log.e("UpdatePostError", "Network request failed", t)
+                    onResult(null)
                 }
             }
         )
