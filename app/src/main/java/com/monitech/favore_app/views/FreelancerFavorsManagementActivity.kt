@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.monitech.favore_app.R
 import com.monitech.favore_app.adapter.FavorPostAdapter
@@ -23,11 +22,23 @@ class FreelancerFavorsManagementActivity : AppCompatActivity() {
 
         val txtNoFavorsToShow:TextView = findViewById(R.id.txtFreelancerNoFavors)
 
+        val favorPostRecycler:RecyclerView = findViewById(R.id.recyclerFreelancerFavorPost)
+        val posts: List<Post>
         postService.getAllPosts { posts ->
             if (posts != null) {
-                val favorPostRecycler:RecyclerView = findViewById(R.id.recyclerFreelancerFavorPost)
                 favorPostRecycler.layoutManager = LinearLayoutManager(applicationContext)
                 favorPostRecycler.adapter = FavorPostAdapter(posts)
+
+                favorPostRecycler.adapter = FavorPostAdapter(posts).apply {
+                    setOnItemClickListener { post ->
+                        val intent = Intent(this@FreelancerFavorsManagementActivity, FreelancerConfigureFavorPost::class.java)
+                        intent.putExtra("post_id", post.post_id)
+                        intent.putExtra("title", post.title)
+                        intent.putExtra("description", post.description)
+                        intent.putExtra("budgetAmount", post.budgetAmount)
+                        startActivity(intent)
+                    }
+                }
             } else {
                 txtNoFavorsToShow.text="No favors to show"
             }

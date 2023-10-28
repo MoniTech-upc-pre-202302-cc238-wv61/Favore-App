@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FreelancerConfigureFavorPost">
+    tools:context=".views.FreelancerConfigureFavorPost">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,7 +18,13 @@
             android:textSize="24sp"
             android:textStyle="bold" />
     </LinearLayout>
-
+    <TextView
+        android:id="@+id/favorPostId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="16sp"
+        android:layout_margin="8dp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,7 +56,7 @@
             android:textStyle="bold"
             android:textSize="16sp" />
         <EditText
-            android:id="@+id/txtFavorPostDescription"
+            android:id="@+id/configureFavorDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
@@ -68,7 +74,7 @@
             android:textStyle="bold"
             android:textSize="16sp" />
         <EditText
-            android:id="@+id/txtFavorPostPrice"
+            android:id="@+id/configureFavorBudgetAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
