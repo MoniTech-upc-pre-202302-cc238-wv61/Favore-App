@@ -30,6 +30,7 @@ class FreelancerHomeActivity : AppCompatActivity() {
             val instance = Intent(this, AddFavorActivity::class.java)
             startActivity(instance)
         }
+
         btnConfigureAvailability.setOnClickListener(){
             val instance = Intent(this, ConfigureAvailabilityActivity::class.java)
             startActivity(instance)
