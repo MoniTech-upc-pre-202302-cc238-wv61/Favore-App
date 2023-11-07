@@ -15,6 +15,9 @@
         android:theme="@style/Theme.FavoreApp"
         tools:targetApi="31">
         <activity
+            android:name=".views.ClientContractsManagement"
+            android:exported="false" />
+        <activity
             android:name=".views.FreelancerConfigureFavorPost"
             android:exported="false" />
         <activity
