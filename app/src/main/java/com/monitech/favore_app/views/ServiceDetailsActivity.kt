@@ -57,6 +57,7 @@ class ServiceDetailsActivity : AppCompatActivity() {
 
                 try {
 
+                    //testing data
                     val client = User(
                         12,
                         "ramiro",
