@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.search.SearchBar
+import com.google.gson.Gson
 import com.monitech.favore_app.R
+import com.monitech.favore_app.models.User
 
 class FreelancerHomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,11 +18,18 @@ class FreelancerHomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_freelancer_home)
         val btnAddNewFavor:LinearLayout = findViewById(R.id.btnAddNewFavor)
         val btnConfigureAvailability:LinearLayout = findViewById(R.id.btnConfigureAvailability)
-        val btnConfigurePortfolio:LinearLayout = findViewById(R.id.btnConfigurePortfolio)
 
         val btnViewFreelancerFavors:LinearLayout = findViewById(R.id.btnViewFreelancerFavors)
 
         val searchBar = findViewById<SearchBar>(R.id.searchBar)
+
+        val sharedPreferences = getSharedPreferences("auth", MODE_PRIVATE)
+        val json = sharedPreferences.getString("user", "")
+        val user = Gson().fromJson(json, User::class.java)
+
+        val txtHello = findViewById<TextView>(R.id.txtHelloFreelancer)
+        txtHello.text = "Hello, ${user.name}! You are in Favorer account"
+
 
         searchBar.setOnClickListener {
             val intent = Intent(this, SearchServiceActivity::class.java)
@@ -33,10 +43,6 @@ class FreelancerHomeActivity : AppCompatActivity() {
 
         btnConfigureAvailability.setOnClickListener(){
             val instance = Intent(this, ConfigureAvailabilityActivity::class.java)
-            startActivity(instance)
-        }
-        btnConfigurePortfolio.setOnClickListener(){
-            val instance = Intent(this, ConfigurePortfolioActivity::class.java)
             startActivity(instance)
         }
         btnViewFreelancerFavors.setOnClickListener(){

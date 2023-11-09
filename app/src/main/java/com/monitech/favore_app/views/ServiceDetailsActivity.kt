@@ -1,5 +1,6 @@
 package com.monitech.favore_app.views
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +11,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.gson.Gson
 import com.monitech.favore_app.R
 import com.monitech.favore_app.models.Category
 import com.monitech.favore_app.models.Contract
@@ -90,12 +92,16 @@ class ServiceDetailsActivity : AppCompatActivity() {
                         "string"
                     )
 
+                    val sharedPreferences = getSharedPreferences("auth", Context.MODE_PRIVATE)
+                    val json = sharedPreferences.getString("user", "")
+                    val user = Gson().fromJson(json, User::class.java)
                     val requestPost = Post(
                         1,
                         "House Cleaning",
                         "I will clean your house",
                         listOf("house", "cleaning"),
-                        100.0
+                        100.0,
+                        user
                     )
 
                     val contract = Contract(

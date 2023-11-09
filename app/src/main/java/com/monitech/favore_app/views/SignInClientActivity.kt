@@ -1,5 +1,6 @@
 package com.monitech.favore_app.views
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import com.google.android.material.textfield.TextInputLayout
+import com.google.gson.Gson
 import com.monitech.favore_app.R
 import com.monitech.favore_app.dto.UserLoginDTO
 import com.monitech.favore_app.services.LoginService
@@ -55,6 +57,12 @@ class SignInClientActivity : AppCompatActivity() {
                         txtError.text="You are not a client"
                     } else {
                         val instance = Intent(this, ClientHomeActivity::class.java)
+
+                        // Save user data to shared preferences
+                        val storedUser = Gson().toJson(user)
+                        val sharedPreferences = getSharedPreferences("auth", Context.MODE_PRIVATE)
+                        sharedPreferences.edit().putString("user", storedUser).apply()
+
                         startActivity(instance)
                     }
 
