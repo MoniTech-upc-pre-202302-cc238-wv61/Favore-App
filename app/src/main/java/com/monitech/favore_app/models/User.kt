@@ -1,5 +1,7 @@
 package com.monitech.favore_app.models
 
+import java.io.Serializable
+
 data class User(
     val id: Int?,
     val name: String,
@@ -11,4 +13,4 @@ data class User(
     val imageUrl: String,
     val active: Boolean,
     val type: String
-)
+) : Serializable

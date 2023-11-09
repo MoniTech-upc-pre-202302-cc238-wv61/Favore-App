@@ -30,7 +30,8 @@ class ClientHomeActivity : AppCompatActivity() {
                     finish()
                 }
                 R.id.navigation_orders -> {
-                    startActivity(Intent(this, FreelancerFavorsManagementActivity::class.java))
+//                    startActivity(Intent(this, FreelancerFavorsManagementActivity::class.java))
+                    startActivity(Intent(this, ClientContractsManagement::class.java))
                     finish()
                 }
                 R.id.navigation_search -> {
