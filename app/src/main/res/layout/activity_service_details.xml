@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -80,15 +81,68 @@
         android:layout_height="wrap_content"
         android:paddingHorizontal="16dp"
         android:paddingVertical="8dp"
+        android:paddingBottom="20dp"
         android:textColor="@color/material_dynamic_neutral_variant50"
         android:textSize="16dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Insert your bid for the service"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textStyle="bold"></TextView>
+
+    <EditText
+        android:id="@+id/bidEditText"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:hint="Insert your bid"
+        android:inputType="numberDecimal"></EditText>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="The minimum amount is S/. 20"
+        android:textAlignment="center"
+        android:textColor="#2F2F2F"
+        android:textSize="16dp"></TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="16dp"
+        android:paddingStart="16dp"
+        android:text="What do you need?"
+        android:textAlignment="textStart"
+        android:textSize="20dp"
+        android:textStyle="bold"></TextView>
+
+    <EditText
+        android:id="@+id/descriptionEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="Describe your request"
+        android:inputType="textMultiLine"
+        android:lines="3"></EditText>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Once you make the request, you will have to wait the
+freelancer's approval to begin the service."
+        android:textAlignment="center"
+        android:textColor="#808080"
+        android:textSize="16dp"></TextView>
 
     <Button
         android:id="@+id/btnAddRequest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Request" />
+        android:text="Send Request" />
 
     <RelativeLayout
         android:layout_width="match_parent"
