@@ -1,13 +1,16 @@
 package com.monitech.favore_app.views
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.google.gson.Gson
 import com.monitech.favore_app.R
 import com.monitech.favore_app.models.Post
+import com.monitech.favore_app.models.User
 import com.monitech.favore_app.services.PostService
 import org.w3c.dom.Text
 
@@ -40,12 +43,17 @@ class FreelancerConfigureFavorPost : AppCompatActivity() {
             // Keywords are not implemented yet
 
             val keywords: List<String> = emptyList()
+            val sharedPreferences = getSharedPreferences("auth", Context.MODE_PRIVATE)
+            val json = sharedPreferences.getString("user", "")
+            val user = Gson().fromJson(json, User::class.java)
+
             val post = Post(
                 post_id,
                 postTitle.text.toString(),
                 postDescription.text.toString(),
                 keywords,
-                postBudgetAmount.text.toString().toDouble()
+                postBudgetAmount.text.toString().toDouble(),
+                user
             )
             postService.updatePost(post_id, post) { post ->
                 if (post != null) {
