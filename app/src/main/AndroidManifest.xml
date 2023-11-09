@@ -51,9 +51,6 @@
             android:name=".views.AddFavorActivity"
             android:exported="false" />
         <activity
-            android:name=".views.ConfigurePortfolioActivity"
-            android:exported="false" />
-        <activity
             android:name=".views.FreelancerHomeActivity"
             android:exported="false" />
         <activity
@@ -70,9 +67,6 @@
             android:exported="false" />
         <activity
             android:name=".views.SignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".views.SignInActivity"
             android:exported="false" />
         <activity
             android:name=".views.StartActivity"
