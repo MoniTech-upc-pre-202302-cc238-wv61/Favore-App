@@ -2,10 +2,13 @@ package com.monitech.favore_app.views
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.monitech.favore_app.R
 import com.google.android.material.search.SearchBar
+import com.google.gson.Gson
+import com.monitech.favore_app.models.User
 
 class ClientHomeActivity : AppCompatActivity() {
 
@@ -19,6 +22,14 @@ class ClientHomeActivity : AppCompatActivity() {
             val intent = Intent(this, SearchServiceActivity::class.java)
             startActivity(intent)
         }
+
+        val sharedPreferences = getSharedPreferences("auth", MODE_PRIVATE)
+        val json = sharedPreferences.getString("user", "")
+        val user = Gson().fromJson(json, User::class.java)
+
+        val txtHello = findViewById<TextView>(R.id.txtHelloClient)
+
+        txtHello.text = "Hello, ${user.name}!"
 
         val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
 

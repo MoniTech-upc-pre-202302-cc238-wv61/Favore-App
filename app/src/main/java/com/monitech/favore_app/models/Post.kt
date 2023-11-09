@@ -6,4 +6,5 @@ data class Post(
     val description: String,
     val keywords: List<String>,
     val budgetAmount: Double,
+    val user: User
 )

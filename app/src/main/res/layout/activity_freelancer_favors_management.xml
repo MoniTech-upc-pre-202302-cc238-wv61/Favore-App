@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.ConfigurePortfolioActivity"
     android:orientation="vertical">
 
     <TextView
@@ -21,6 +20,8 @@
         android:id="@+id/recyclerFreelancerFavorPost" />
 
     <TextView
+        android:textSize="18dp"
+        android:paddingHorizontal="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtFreelancerNoFavors" />
