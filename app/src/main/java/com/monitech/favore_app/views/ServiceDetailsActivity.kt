@@ -18,8 +18,7 @@ import com.monitech.favore_app.models.Contract
 import com.monitech.favore_app.models.Post
 import com.monitech.favore_app.models.User
 import com.monitech.favore_app.services.ContractService
-import java.text.SimpleDateFormat
-import java.util.Date
+import com.monitech.favore_app.services.PostService
 
 class ServiceDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +28,8 @@ class ServiceDetailsActivity : AppCompatActivity() {
         val backButton = findViewById<ImageButton>(R.id.backButton)
 
         val contractService = ContractService()
+        val postService = PostService()
+
 
         backButton.setOnClickListener {
             finish()
@@ -50,93 +51,75 @@ class ServiceDetailsActivity : AppCompatActivity() {
 
         val btnAddRequest: Button = findViewById(R.id.btnAddRequest)
 
-        btnAddRequest.setOnClickListener(){
-
+        btnAddRequest.setOnClickListener() {
             val requestDescription = requestDescription.text.toString()
             val requestAmount = requestAmount.text.toString().toDouble()
 
             if (!requestDescription.isNullOrBlank() && !requestAmount.isNaN()) {
+                postService.getPostById(postId) { obtainedPost ->
+                    if (obtainedPost != null) {
+                        Log.d("GetPostById", "Post obtenido: $obtainedPost")
 
-                try {
+                        val freelancerRequest = obtainedPost.user
 
-                    //testing data
-                    val client = User(
-                        12,
-                        "ramiro",
-                        "ramiro",
-                        "ramiro",
-                        "ramiro",
-                        "2023-10-28T04:35:04.575663",
-                        "2023-10-28T04:35:04.575668",
-                        "",
-                        true,
-                        "CLIENT"
-                    )
+                        try {
+                            val sharedPreferences = getSharedPreferences("auth", MODE_PRIVATE)
+                            val json = sharedPreferences.getString("user", "")
+                            val client = Gson().fromJson(json, User::class.java)
 
-                    val freelancer = User(
-                        1,
-                        "user1",
-                        "string",
-                        "string",
-                        "string",
-                        "2023-09-16T03:25:47.616263",
-                        "2023-09-16T03:25:47.61628",
-                        "string",
-                        true,
-                        "FREELANCER"
-                    )
+                            val requestCategory = Category(
+                                1,
+                                "string",
+                                "string"
+                            )
 
-                    val requestCategory = Category(
-                        1,
-                        "string",
-                        "string"
-                    )
+                            val contract = Contract(
+                                null,
+                                requestDescription,
+                                "pending",
+                                "string",
+                                requestAmount,
+                                requestCategory,
+                                freelancerRequest,
+                                client,
+                                obtainedPost
+                            )
 
-                    val sharedPreferences = getSharedPreferences("auth", Context.MODE_PRIVATE)
-                    val json = sharedPreferences.getString("user", "")
-                    val user = Gson().fromJson(json, User::class.java)
-                    val requestPost = Post(
-                        1,
-                        "House Cleaning",
-                        "I will clean your house",
-                        listOf("house", "cleaning"),
-                        100.0,
-                        user
-                    )
+                            contractService.createContract(contract) { createdContract ->
+                                try {
+                                    if (createdContract?.contract_id != null) {
+                                        Toast.makeText(
+                                            this,
+                                            "Contract successfully created",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    } else {
+                                        Toast.makeText(
+                                            this,
+                                            "Error creating contract",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                } catch (f: Exception) {
+                                    Log.e(
+                                        "ContractCreationError",
+                                        "Error handling contract response: ${f.message}",
+                                    )
 
-                    val contract = Contract(
-                        2,
-                        requestDescription,
-                        "pending",
-                        "string",
-                        requestAmount,
-                        requestCategory,
-                        freelancer,
-                        client,
-                        requestPost
-                    )
-
-                    contractService.createContract(contract)
-                    {
-                        if (it?.contract_id != null) {
-                            Toast.makeText(
-                                this,
-                                "Contract successfully created",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        } else {
-                            Toast.makeText(
-                                this,
-                                "Error creating contract and $postId",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                                    Toast.makeText(
+                                        this,
+                                        "Error handling contract response: ${f.message}",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
+                        } catch (e: Exception) {
+                            Log.e("ContractCreationError", "Error creating contract: ${e.message}")
                         }
+                    } else {
+                        Log.e("GetPostById", "Couldn't get post with ID: $postId")
                     }
-                } catch (e: Exception) {
-                    Log.e("ContractCreationError", "Error creating contract: ${e.message}")
                 }
-
-
             } else {
                 Toast.makeText(
                     this,
@@ -144,7 +127,6 @@ class ServiceDetailsActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
-
         }
 
         val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
@@ -156,18 +138,22 @@ class ServiceDetailsActivity : AppCompatActivity() {
                     startActivity(Intent(this, ClientHomeActivity::class.java))
                     finish()
                 }
+
                 R.id.navigation_orders -> {
                     startActivity(Intent(this, FreelancerFavorsManagementActivity::class.java))
                     finish()
                 }
+
                 R.id.navigation_search -> {
                     startActivity(Intent(this, SearchServiceActivity::class.java))
                     finish()
                 }
+
                 R.id.navigation_inbox -> {
                     startActivity(Intent(this, AddFavorActivity::class.java))
                     finish()
                 }
+
                 R.id.navigation_user -> {
                     startActivity(Intent(this, SignInClientActivity::class.java))
                     finish()

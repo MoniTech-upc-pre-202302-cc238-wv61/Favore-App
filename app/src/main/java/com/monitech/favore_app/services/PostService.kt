@@ -62,4 +62,20 @@ class PostService {
             }
         )
     }
+
+    fun getPostById(postId: Int, onResult: (Post?) -> Unit) {
+        retrofit.getPostById(postId).enqueue(
+            object : Callback<Post> {
+                override fun onResponse(call: Call<Post>, response: Response<Post>) {
+                    val post = response.body()
+                    onResult(post)
+                }
+
+                override fun onFailure(call: Call<Post>, t: Throwable) {
+                    t?.printStackTrace()
+                    onResult(null)
+                }
+            }
+        )
+    }
 }
