@@ -23,7 +23,7 @@ class FreelancerHomeActivity : AppCompatActivity() {
 
         val searchBar = findViewById<SearchBar>(R.id.searchBar)
 
-        val sharedPreferences = getSharedPreferences("auth", MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("favore", MODE_PRIVATE)
         val json = sharedPreferences.getString("user", "")
         val user = Gson().fromJson(json, User::class.java)
 

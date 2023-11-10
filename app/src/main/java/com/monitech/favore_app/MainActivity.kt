@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         finish()
 
-        val sharedPreferences = getSharedPreferences("auth", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("favore", Context.MODE_PRIVATE)
 
         // Check if theres a user logged in
         if (sharedPreferences.contains("user")) {
@@ -26,13 +26,26 @@ class MainActivity : AppCompatActivity() {
 
             if (user.type == "CLIENT") {
                 val instance = Intent(this, ClientHomeActivity::class.java)
+
+                // Usar navbar de cliente
+
+
                 startActivity(instance)
             } else if (user.type  == "FREELANCER") {
                 val instance = Intent(this, FreelancerHomeActivity::class.java)
+
+                // Usar navbar de freelancer
+
+
                 startActivity(instance)
             }
         } else {
             val instance = Intent(this, StartActivity::class.java)
+
+            // No usar navbar
+
+
+
             startActivity(instance)
         }
     }

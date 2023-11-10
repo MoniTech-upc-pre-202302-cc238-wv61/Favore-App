@@ -60,7 +60,7 @@ class SignInClientActivity : AppCompatActivity() {
 
                         // Save user data to shared preferences
                         val storedUser = Gson().toJson(user)
-                        val sharedPreferences = getSharedPreferences("auth", Context.MODE_PRIVATE)
+                        val sharedPreferences = getSharedPreferences("favore", Context.MODE_PRIVATE)
                         sharedPreferences.edit().putString("user", storedUser).apply()
 
                         startActivity(instance)

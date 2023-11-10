@@ -17,8 +17,8 @@ class SearchServiceActivity : AppCompatActivity() {
 
         val btnServices = findViewById<View>(R.id.btn_list_services)
 
-        val maintenanceServices = findViewById<View>(R.id.ll_maintenance_services)
-        maintenanceServices.setOnClickListener {
+        val categories = findViewById<View>(R.id.categories)
+        categories.setOnClickListener {
             val intent = Intent(this, SearchResultsActivity::class.java)
             startActivity(intent)
         }

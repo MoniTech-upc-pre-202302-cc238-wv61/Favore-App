@@ -1,5 +1,6 @@
 package com.monitech.favore_app.views
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.gson.Gson
 import com.monitech.favore_app.R
 import com.monitech.favore_app.adapter.FavorPostAdapter
 import com.monitech.favore_app.models.Post
@@ -29,16 +31,38 @@ class SearchResultsActivity : AppCompatActivity() {
         val txtNoFavorsToShow:TextView = findViewById(R.id.txtNoServices)
 
         postService.getAllPosts { posts ->
-            if (posts != null) {
+            if (posts!= null) {
                 favorPostRecycler.layoutManager = LinearLayoutManager(applicationContext)
-                favorPostRecycler.adapter = FavorPostAdapter(posts)
-                favorPostRecycler.adapter = FavorPostAdapter(posts).apply {
+                favorPostRecycler.adapter = FavorPostAdapter(posts.reversed())
+                favorPostRecycler.adapter = FavorPostAdapter(posts.reversed()).apply {
                     setOnItemClickListener { post ->
                         val intent = Intent(this@SearchResultsActivity, ServiceDetailsActivity::class.java)
                         intent.putExtra("post_id", post.post_id)
                         intent.putExtra("title", post.title)
                         intent.putExtra("description", post.description)
                         intent.putExtra("budgetAmount", post.budgetAmount)
+
+                        // Save user data to shared preferences
+                        val sharedPreferences = getSharedPreferences("favore", Context.MODE_PRIVATE)
+                        if (sharedPreferences.contains("recentlyViewed")) {
+                            val storedPosts = sharedPreferences.getString("recentlyViewed", "")
+                            val posts = Gson().fromJson(storedPosts, Array<Post>::class.java).toMutableList()
+                            if (posts.size >= 3) {
+                                posts.removeAt(0)  // Remove 1 if there are 3 or more
+                            }
+                            posts.add(post)
+
+                            val newStoredPosts = Gson().toJson(posts)
+                            sharedPreferences.edit().putString("recentlyViewed", newStoredPosts).apply()
+                        }
+                        // If there are no recently viewed posts
+                        else {
+                            val posts = mutableListOf<Post>()
+                            posts.add(post)
+
+                            val newStoredPosts = Gson().toJson(posts)
+                            sharedPreferences.edit().putString("recentlyViewed", newStoredPosts).apply()
+                        }
 
                         startActivity(intent)
                     }
@@ -50,12 +74,8 @@ class SearchResultsActivity : AppCompatActivity() {
 
         favorPostRecycler.adapter = FavorPostAdapter(posts).apply {
 
-
-
             // This is the code that is executed when the user clicks on a post
             setOnItemClickListener { post ->
-
-
                 val intent = Intent(this@SearchResultsActivity, ServiceDetailsActivity::class.java)
                 intent.putExtra("post_id", post.post_id)
                 intent.putExtra("title", post.title)
@@ -64,8 +84,10 @@ class SearchResultsActivity : AppCompatActivity() {
 
                 startActivity(intent)
             }
-            println("FavorPostAdapter(posts).apply")
         }
+
+
+
 
         val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
 

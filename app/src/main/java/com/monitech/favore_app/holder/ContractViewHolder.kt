@@ -9,21 +9,42 @@ import com.monitech.favore_app.models.Contract
 import com.squareup.picasso.Picasso
 
 class ContractViewHolder(view: View): RecyclerView.ViewHolder(view) {
-    val image = view.findViewById<ImageView>(R.id.imgFavorPost)
+    val conctractTitle = view.findViewById<TextView>(R.id.txtContractTitle)
+    val image = view.findViewById<ImageView>(R.id.imgContractFreelancerImg)
     val contractFreelancerName = view.findViewById<TextView>(R.id.txtContractFreelancerName)
     val contractPrice = view.findViewById<TextView>(R.id.txtContractPrice)
     val contractDate = view.findViewById<TextView>(R.id.txtContractDateCreated)
     val contractStatus = view.findViewById<TextView>(R.id.txtContractStatus)
+    val contractStatusImage = view.findViewById<ImageView>(R.id.imgContractStatus)
 
 
     fun render(contractModel: Contract){
+        if (contractModel.post != null){
+            conctractTitle.text = contractModel.post.title.toString();
+        }
         Picasso.get()
-            .load("https://static.wixstatic.com/media/76751ad539344a41a9950d2ee585e350.jpg/v1/fill/w_560,h_372,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Contractor.jpg")
+            .load(contractModel.freelancer.imageUrl)
             .into(image);
-        contractFreelancerName.text = contractModel.freelancer.name.toString();
+        contractFreelancerName.text = contractModel.freelancer.name.toString() + " " + contractModel.freelancer.lastName.toString();
         contractPrice.text = "USD "+ contractModel.ammount.toString();
-        contractDate.text = contractModel.createdAt.toString();
+        contractModel.createdAt?.let {
+            contractDate.text = "Order date " + it.substring(0,10)
+        }
         contractStatus.text = contractModel.status.toString();
+        if (contractModel.status == "Pending"){
+            contractStatusImage.setImageDrawable(itemView.context.getDrawable(R.drawable.pending))
+        }else if (contractModel.status == "In progress"){
+            contractStatusImage.setImageDrawable(itemView.context.getDrawable(R.drawable.inprogress))
+        }
+        else if (contractModel.status == "Completed"){
+            contractStatusImage.setImageDrawable(itemView.context.getDrawable(R.drawable.completed))
+        }
+        else if (contractModel.status == "Canceled"){
+            contractStatusImage.setImageDrawable(itemView.context.getDrawable(R.drawable.cancelled))
+        }
+        else {
+            contractStatusImage.setImageDrawable(itemView.context.getDrawable(R.drawable.unknown))
+        }
     }
 
 }

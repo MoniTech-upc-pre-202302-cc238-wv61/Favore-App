@@ -96,7 +96,7 @@ class SignUpActivity : AppCompatActivity() {
             userService.createUser(userCreateDTO) { user, message ->
                 if (user != null) {
                     val storedUser = Gson().toJson(user)
-                    val sharedPreferences = getSharedPreferences("auth", Context.MODE_PRIVATE)
+                    val sharedPreferences = getSharedPreferences("favore", Context.MODE_PRIVATE)
                     sharedPreferences.edit().putString("user", storedUser).apply()
 
                     if (user.type=="FREELANCER") {
