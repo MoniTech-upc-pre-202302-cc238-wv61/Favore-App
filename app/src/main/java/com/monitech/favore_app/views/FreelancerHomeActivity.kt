@@ -20,21 +20,15 @@ class FreelancerHomeActivity : AppCompatActivity() {
         val btnConfigureAvailability:LinearLayout = findViewById(R.id.btnConfigureAvailability)
 
         val btnViewFreelancerFavors:LinearLayout = findViewById(R.id.btnViewFreelancerFavors)
+        val btnManageFreelancerContracts:LinearLayout = findViewById(R.id.btnManageFreelancerContracts)
 
-        val searchBar = findViewById<SearchBar>(R.id.searchBar)
-
-        val sharedPreferences = getSharedPreferences("auth", MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("favore", MODE_PRIVATE)
         val json = sharedPreferences.getString("user", "")
         val user = Gson().fromJson(json, User::class.java)
 
         val txtHello = findViewById<TextView>(R.id.txtHelloFreelancer)
         txtHello.text = "Hello, ${user.name}! You are in Favorer account"
 
-
-        searchBar.setOnClickListener {
-            val intent = Intent(this, SearchServiceActivity::class.java)
-            startActivity(intent)
-        }
 
         btnAddNewFavor.setOnClickListener(){
             val instance = Intent(this, AddFavorActivity::class.java)
@@ -49,6 +43,14 @@ class FreelancerHomeActivity : AppCompatActivity() {
             val instance = Intent(this, FreelancerFavorsManagementActivity::class.java)
             startActivity(instance)
         }
+        btnManageFreelancerContracts.setOnClickListener(){
+            val instance = Intent(this, FreelancerManageContracts::class.java)
+            startActivity(instance)
+        }
+
+
+
+
 
         val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
 

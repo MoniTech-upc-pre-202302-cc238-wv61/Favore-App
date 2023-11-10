@@ -11,6 +11,6 @@ data class Contract (
     val category: Category,
     val freelancer: User,
     val client: User,
-    val postId: Post,
+    val post: Post,
     val createdAt: String? = null,
 )
