@@ -4,10 +4,12 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.children
 import com.google.android.material.chip.Chip
@@ -77,7 +79,7 @@ class AddFavorActivity : AppCompatActivity() {
                 txtTile.editText?.text.toString(),
                 txtDescription.editText?.text.toString(),
                 keywords,
-                txtBudgetAmount.editText?.text.toString().toDouble(),
+                txtBudgetAmount.editText?.text.toString().toDoubleOrNull() ?: 0.0,
                 user,
             )
 
