@@ -8,6 +8,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.view.children
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import com.google.android.material.textfield.TextInputLayout
 import com.google.gson.Gson
 import com.monitech.favore_app.R
@@ -30,13 +33,34 @@ class AddFavorActivity : AppCompatActivity() {
         val txtBudgetAmount:TextInputLayout = findViewById(R.id.txtNewBudgetAmount)
         val btnPublish:Button = findViewById(R.id.btnPublishNewFavor)
         val photoFavor:ImageView = findViewById(R.id.imgNewFavor)
+        val txtKeywords:TextInputLayout = findViewById(R.id.txtNewKeywords)
+        val chipGroup:ChipGroup = findViewById(R.id.keywordsChipGroup)
+
+        // when user writes space in txtkeywrods add it into the chip group
+        txtKeywords.editText?.setOnKeyListener { _, _, _ ->
+            if (txtKeywords.editText?.text.toString().contains(" ")) {
+                val chip = Chip(this)
+                chip.text = txtKeywords.editText?.text.toString().replace(" ", "")
+                chip.isCloseIconVisible = true
+                chip.setOnCloseIconClickListener {
+                    chipGroup.removeView(chip)
+                }
+                chipGroup.addView(chip)
+                txtKeywords.editText?.text?.clear()
+            }
+            false
+        }
+
+
         Picasso.get()
             .load("https://static.wixstatic.com/media/76751ad539344a41a9950d2ee585e350.jpg/v1/fill/w_560,h_372,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Contractor.jpg")
             .into(photoFavor)
 
         btnPublish.setOnClickListener(){
-            // Demo post
-            val keywords: List<String> = emptyList()
+            // Insert chips into keywords
+            val keywords: List<String> = chipGroup.children.map { chip ->
+                (chip as Chip).text.toString()
+            }.toList()
 
             val sharedPreferences = getSharedPreferences("auth", Context.MODE_PRIVATE)
             val json = sharedPreferences.getString("user", "")

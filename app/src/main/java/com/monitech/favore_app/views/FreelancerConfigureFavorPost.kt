@@ -1,6 +1,7 @@
 package com.monitech.favore_app.views
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -27,21 +28,16 @@ class FreelancerConfigureFavorPost : AppCompatActivity() {
         val postTitle = findViewById<EditText>(R.id.configureFavorTitle)
         val postDescription = findViewById<EditText>(R.id.configureFavorDescription)
         val postBudgetAmount = findViewById<EditText>(R.id.configureFavorBudgetAmount)
-        val postId = findViewById<TextView>(R.id.favorPostId)
         val btnUpdateFavorPost = findViewById<Button>(R.id.btnSaveChangesFavorPost)
 
         val currentPostId = post_id.toString().toInt()
-        postId.setText("Post id: ${post_id.toString()}")
         postTitle.setText(title)
         postDescription.setText(description)
         postBudgetAmount.setText(budgetAmount.toString())
 
         val postService = PostService()
 
-
         btnUpdateFavorPost.setOnClickListener {
-            // Keywords are not implemented yet
-
             val keywords: List<String> = emptyList()
             val sharedPreferences = getSharedPreferences("auth", Context.MODE_PRIVATE)
             val json = sharedPreferences.getString("user", "")
@@ -58,7 +54,8 @@ class FreelancerConfigureFavorPost : AppCompatActivity() {
             postService.updatePost(post_id, post) { post ->
                 if (post != null) {
                     Toast.makeText(this, "Post updated successfully", Toast.LENGTH_SHORT).show()
-                    finish()
+                    val intent = Intent(this, FreelancerFavorsManagementActivity::class.java)
+                    startActivity(intent)
                 } else {
                     Toast.makeText(this, "Failed to update post", Toast.LENGTH_SHORT).show()
                 }
