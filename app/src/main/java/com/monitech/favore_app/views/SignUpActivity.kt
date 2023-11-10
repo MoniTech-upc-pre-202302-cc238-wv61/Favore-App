@@ -20,6 +20,9 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
+        val sharedPreferences = getSharedPreferences("favore", Context.MODE_PRIVATE)
+        val storedUser = Gson().toJson(null)
+
         val userService = UserService()
 
         var selected = "";

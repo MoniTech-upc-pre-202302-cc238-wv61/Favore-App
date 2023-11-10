@@ -9,14 +9,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="8dp">
+        android:layout_marginHorizontal="16dp"
+        android:orientation="horizontal">
+        <ImageButton
+            android:layout_gravity="center"
+            android:id="@+id/btnBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/arrow_left"
+            android:background="@color/white" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Edit favor post"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:padding="8dp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

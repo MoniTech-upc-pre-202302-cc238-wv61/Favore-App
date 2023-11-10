@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".views.ClientContractsManagement"
     android:orientation="vertical">
 
     <LinearLayout
@@ -21,37 +23,24 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Manage your favors"
+            android:text="Manage your recent orders"
             android:textSize="24sp"
             android:textStyle="bold"
             android:padding="8dp"/>
     </LinearLayout>
-
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/recyclerFreelancerFavorPost" />
+        android:id="@+id/recyclerFreelancerContracts" />
 
     <TextView
-        android:textSize="18dp"
+        android:id="@+id/txtNoFreelancerOrders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No favor orders yet"
+        android:layout_marginTop="16dp"
         android:paddingHorizontal="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtFreelancerNoFavors" />
+        android:visibility="gone"
+        />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="#FFFFFF"
-            app:menu="@drawable/bottom_nav_menu"
-            app:labelVisibilityMode="labeled"/>
-
-    </RelativeLayout>
 </LinearLayout>

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.monitech.favore_app.R
 
@@ -16,6 +17,11 @@ class ConfigureAvailabilityActivity : AppCompatActivity() {
 
         btnSaveAvailabilityChanges.setOnClickListener(){
 
+        }
+
+        val btnBack: ImageButton = findViewById(R.id.btnBack)
+        btnBack.setOnClickListener(){
+            finish()
         }
 
         val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)

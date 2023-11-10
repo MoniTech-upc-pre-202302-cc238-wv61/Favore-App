@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import com.google.gson.Gson
@@ -35,6 +36,10 @@ class FreelancerConfigureFavorPost : AppCompatActivity() {
         postDescription.setText(description)
         postBudgetAmount.setText(budgetAmount.toString())
 
+        val btnBack: ImageButton = findViewById(R.id.btnBack)
+        btnBack.setOnClickListener(){
+            finish()
+        }
         val postService = PostService()
 
         btnUpdateFavorPost.setOnClickListener {

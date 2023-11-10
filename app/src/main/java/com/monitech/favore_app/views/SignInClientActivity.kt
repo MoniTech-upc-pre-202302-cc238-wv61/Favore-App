@@ -19,6 +19,9 @@ class SignInClientActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in_client)
 
+        val sharedPreferences = getSharedPreferences("favore", Context.MODE_PRIVATE)
+        val storedUser = Gson().toJson(null)
+
         val loginService = LoginService()
 
         val btnFreelancer: Button = findViewById(R.id.btnFreelancer)

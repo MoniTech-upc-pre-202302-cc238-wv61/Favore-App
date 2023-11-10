@@ -18,6 +18,9 @@ class SignInFreelancerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in_freelancer)
 
+        val sharedPreferences = getSharedPreferences("favore", Context.MODE_PRIVATE)
+        val storedUser = Gson().toJson(null)
+
         val btnReturn: ImageButton = findViewById(R.id.btnReturn)
         btnReturn.setOnClickListener(){
             finish()

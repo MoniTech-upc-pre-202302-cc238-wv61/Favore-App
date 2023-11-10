@@ -39,6 +39,11 @@ class MainActivity : AppCompatActivity() {
 
                 startActivity(instance)
             }
+            else {
+                val instance = Intent(this, StartActivity::class.java)
+
+                // No usar navbar
+            }
         } else {
             val instance = Intent(this, StartActivity::class.java)
 

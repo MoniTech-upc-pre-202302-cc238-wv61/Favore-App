@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,6 +28,11 @@ class FreelancerFavorsManagementActivity : AppCompatActivity() {
 
         val favorPostRecycler:RecyclerView = findViewById(R.id.recyclerFreelancerFavorPost)
         val posts: List<Post>
+
+        val btnBack: ImageButton = findViewById(R.id.btnBack)
+        btnBack.setOnClickListener(){
+            finish()
+        }
 
         postService.getAllPosts { posts ->
             val sharedPreferences = getSharedPreferences("favore", Context.MODE_PRIVATE)

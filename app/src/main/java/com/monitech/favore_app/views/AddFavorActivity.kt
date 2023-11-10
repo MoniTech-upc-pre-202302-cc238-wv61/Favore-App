@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.view.children
@@ -36,6 +37,11 @@ class AddFavorActivity : AppCompatActivity() {
         val txtKeywords:TextInputLayout = findViewById(R.id.txtNewKeywords)
         val chipGroup:ChipGroup = findViewById(R.id.keywordsChipGroup)
 
+        val btnBack: ImageButton = findViewById(R.id.btnBack)
+        btnBack.setOnClickListener(){
+            finish()
+        }
+
         // when user writes space in txtkeywrods add it into the chip group
         txtKeywords.editText?.setOnKeyListener { _, _, _ ->
             if (txtKeywords.editText?.text.toString().contains(" ")) {
@@ -62,7 +68,7 @@ class AddFavorActivity : AppCompatActivity() {
                 (chip as Chip).text.toString()
             }.toList()
 
-            val sharedPreferences = getSharedPreferences("auth", Context.MODE_PRIVATE)
+            val sharedPreferences = getSharedPreferences("favore", Context.MODE_PRIVATE)
             val json = sharedPreferences.getString("user", "")
             val user = Gson().fromJson(json, User::class.java)
 
@@ -75,25 +81,36 @@ class AddFavorActivity : AppCompatActivity() {
                 user,
             )
 
-            postService.createPost(post){
-                if (it?.post_id != null) {
-                    Toast.makeText(
-                        this,
-                        "Post successfully created",
-                        Toast.LENGTH_SHORT).show()
-                    val instance = Intent(this, FreelancerFavorsManagementActivity::class.java)
-                    startActivity(instance)
-                } else {
-                    Toast.makeText(
-                        this,
-                        "Error creating post",
-                        Toast.LENGTH_SHORT).show()
+            if (post.user.type == "CLIENT") {
+                Toast.makeText(
+                    this,
+                    "Error creating favor",
+                    Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            else {
+                postService.createPost(post){
+                    if (it?.post_id != null) {
+                        Toast.makeText(
+                            this,
+                            "Post successfully created",
+                            Toast.LENGTH_SHORT).show()
+                        txtTile.editText?.text?.clear()
+                        txtDescription.editText?.text?.clear()
+                        txtBudgetAmount.editText?.text?.clear()
+                        txtKeywords.editText?.text?.clear()
+                        chipGroup.removeAllViews()
+
+                        val instance = Intent(this, FreelancerFavorsManagementActivity::class.java)
+                        startActivity(instance)
+                    } else {
+                        Toast.makeText(
+                            this,
+                            "Error creating post",
+                            Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
-
-            txtTile.clearAnimation()
-            txtDescription.clearAnimation()
-            txtBudgetAmount.clearAnimation()
         }
     }
 }
