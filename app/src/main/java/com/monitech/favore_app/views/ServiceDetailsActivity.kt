@@ -39,6 +39,7 @@ class ServiceDetailsActivity : AppCompatActivity() {
         val description = intent.getStringExtra("description")
         val budgetAmount = intent.getDoubleExtra("budgetAmount", 0.0)
 
+
         val requestAmount = findViewById<EditText>(R.id.bidEditText)
         val requestDescription = findViewById<EditText>(R.id.descriptionEditText)
 
@@ -107,7 +108,7 @@ class ServiceDetailsActivity : AppCompatActivity() {
                     val contract = Contract(
                         2,
                         requestDescription,
-                        "pending",
+                        "Pending",
                         "string",
                         requestAmount,
                         requestCategory,
