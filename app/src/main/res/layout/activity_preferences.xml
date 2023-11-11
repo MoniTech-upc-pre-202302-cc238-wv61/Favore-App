@@ -113,4 +113,13 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <include layout="@layout/activity_navbar" />
+
+    </RelativeLayout>
 </LinearLayout>
