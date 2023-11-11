@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".views.UserProfileActivity">
+
+<LinearLayout
+    android:paddingVertical="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingHorizontal="16dp">
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/favoreicon"
+        android:layout_marginEnd="8dp"/>
+    <TextView
+        android:id="@+id/txtHelloClient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="User"
+        android:textSize="24dp"
+        android:textStyle="bold"/>
+</LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="180dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:background="@drawable/rounded_border"
+        >
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:scaleType="fitXY"
+            />
+        <TextView
+            android:id="@+id/txtProfileName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Change profile picture"
+            android:textColor="@color/black"
+            />
+    </LinearLayout>
+    
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:paddingHorizontal="16dp">
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="4dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/layoutFavore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:textColor="#546AFC"
+                android:text="Favore"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Saved List"
+                android:layout_marginTop="8dp"
+                android:textColor="#000000"
+                android:textSize="18sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="8dp"
+                android:text="Payment Methods"
+                android:textColor="#000000"
+                android:textSize="18sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="8dp"
+                android:text="Invite friends"
+                android:textColor="#000000"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:textColor="#546AFC"
+                android:text="Settings"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Preferences"
+                android:layout_marginTop="8dp"
+                android:textColor="#000000"
+                android:textSize="18sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Profile"
+                android:layout_marginTop="8dp"
+                android:textColor="#000000"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:textColor="#546AFC"
+                android:text="More"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Support"
+                android:layout_marginTop="8dp"
+                android:textColor="#000000"
+                android:textSize="18sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Terms and Conditions"
+                android:layout_marginTop="8dp"
+                android:textColor="#000000"
+                android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/txtSignOut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Sign Out"
+                android:layout_marginTop="8dp"
+                android:textColor="#000000"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        app:menu="@drawable/bottom_nav_menu"
+        app:labelVisibilityMode="labeled"/>
+
+</RelativeLayout>
+</LinearLayout>
