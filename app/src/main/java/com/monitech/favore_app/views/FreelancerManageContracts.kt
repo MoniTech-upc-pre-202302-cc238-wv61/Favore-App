@@ -35,7 +35,7 @@ class FreelancerManageContracts : AppCompatActivity() {
                 val json = sharedPreferences.getString("user", "")
                 val user = Gson().fromJson(json, User::class.java)
 
-                val filteredContracts = contracts.filter { contract -> contract.client?.id == user.id }.reversed()
+                val filteredContracts = contracts.filter { contract -> contract.freelancer?.id == user.id }.reversed()
                 val textNoOrder: TextView = findViewById(R.id.txtNoFreelancerOrders)
 
                 if (filteredContracts.isEmpty()) {
@@ -47,7 +47,7 @@ class FreelancerManageContracts : AppCompatActivity() {
                     contractsRecycler.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(applicationContext)
                     contractsRecycler.adapter = ContractAdapter(filteredContracts)
 
-                    contractsRecycler.adapter = ContractAdapter(contracts).apply {
+                    contractsRecycler.adapter = ContractAdapter(filteredContracts).apply {
 //                    setOnItemClickListener { contract ->
 ////                        val intent = Intent(this@ClientContractsManagement, )
 ////                        intent.putExtra("post_id", contract.freelancer.name)
