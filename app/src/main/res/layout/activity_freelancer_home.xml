@@ -25,15 +25,13 @@
             android:textStyle="bold"/>
     </LinearLayout>
     <TextView
+        android:id="@+id/txtHelloFreelancer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="You are a Favorer, start earning!"
+        android:textSize="18dp"
+        android:text="Hi, start earning!"
+        android:paddingVertical="8dp"
         android:paddingHorizontal="16dp"/>
-    <com.google.android.material.search.SearchBar
-        android:id="@+id/searchBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Search services" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -123,7 +121,7 @@
             android:padding="24dp"
             android:layout_marginVertical="4dp"
             android:background="@drawable/stroke"
-            android:id="@+id/btnConfigurePortfolio">
+            android:id="@+id/btnViewFreelancerFavors">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -132,13 +130,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Configure your portfolio"
+                    android:text="View favors"
                     android:textStyle="bold"
                     android:textSize="16sp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tell about your work"
+                    android:text="Manage your favor posts"
                     android:textSize="12sp" />
             </LinearLayout>
             <View
@@ -158,7 +156,7 @@
             android:padding="24dp"
             android:layout_marginVertical="4dp"
             android:background="@drawable/stroke"
-            android:id="@+id/btnViewFreelancerFavors">
+            android:id="@+id/btnManageFreelancerContracts">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -167,45 +165,26 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="View favors"
+                    android:text="Manage orders"
                     android:textStyle="bold"
                     android:textSize="16sp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="This is a demo function, it will soon be removed"
+                    android:text="Manage your current and past favors"
                     android:textSize="12sp" />
             </LinearLayout>
             <View
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"/>
+
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/baseline_co_present_24"
-                android:layout_gravity="right" />
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingHorizontal="16dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Requests"
-            android:textStyle="bold"
-            android:textSize="24dp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TODO" />
+                android:layout_width="42dp"
+                android:padding="2dp"
+                android:layout_height="42dp"
+                android:layout_gravity="right"
+                android:src="@drawable/manage_contracts" />
         </LinearLayout>
     </LinearLayout>
     <RelativeLayout

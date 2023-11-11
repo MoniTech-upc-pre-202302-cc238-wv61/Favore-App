@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingHorizontal="16dp">
+        android:paddingHorizontal="16dp"
+        >
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -44,151 +45,160 @@
             android:layout_height="wrap_content"
             android:text="Categories"
             android:textSize="20sp"
-            android:layout_marginTop="16dp" />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="5dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Home Repairs"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Electrical, Carpentry, Painting"
-                android:textSize="14sp"
-                android:textColor="#727976"
-                android:layout_marginLeft="8dp"/>
-        </LinearLayout>
-
+            android:layout_marginTop="16dp"
+            android:id="@+id/btn_list_services"
+            />
 
         <LinearLayout
-            android:id="@+id/ll_maintenance_services"
+            android:id="@+id/categories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="5dp">
-
-            <TextView
-                android:layout_width="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Maintenance Services"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="5dp"
+                >
 
-            <TextView
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Home Repairs"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Electrical, Carpentry, Painting"
+                    android:textSize="14sp"
+                    android:textColor="#727976"
+                    android:layout_marginLeft="8dp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cleaning, Gardening"
-                android:textSize="14sp"
-                android:textColor="#727976"
-                android:layout_marginLeft="8dp"/>
-        </LinearLayout>
+                android:orientation="vertical"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Maintenance Services"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cleaning, Gardening"
+                    android:textSize="14sp"
+                    android:textColor="#727976"
+                    android:layout_marginLeft="8dp"/>
+            </LinearLayout>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="5dp">
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tech and Development"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="5dp">
 
-            <TextView
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tech and Development"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Web Development, Graphic Design"
+                    android:textSize="14sp"
+                    android:textColor="#727976"
+                    android:layout_marginLeft="8dp"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Web Development, Graphic Design"
-                android:textSize="14sp"
-                android:textColor="#727976"
-                android:layout_marginLeft="8dp"/>
-        </LinearLayout>
+                android:orientation="vertical"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Professional Services"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Business Consulting, Finances"
+                    android:textSize="14sp"
+                    android:textColor="#727976"
+                    android:layout_marginLeft="8dp"/>
+            </LinearLayout>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="5dp">
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Professional Services"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="5dp">
 
-            <TextView
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Personal Care"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hair and Styling, Personal Training"
+                    android:textSize="14sp"
+                    android:textColor="#727976"
+                    android:layout_marginLeft="8dp"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Business Consulting, Finances"
-                android:textSize="14sp"
-                android:textColor="#727976"
-                android:layout_marginLeft="8dp"/>
-        </LinearLayout>
+                android:orientation="vertical"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="5dp">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Education and Tutoring"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="5dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Personal Care"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hair and Styling, Personal Training"
-                android:textSize="14sp"
-                android:textColor="#727976"
-                android:layout_marginLeft="8dp"/>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="5dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Education and Tutoring"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Private Lessons, Language Classes"
-                android:textSize="14sp"
-                android:textColor="#727976"
-                android:layout_marginLeft="8dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Private Lessons, Language Classes"
+                    android:textSize="14sp"
+                    android:textColor="#727976"
+                    android:layout_marginLeft="8dp"/>
+            </LinearLayout>
         </LinearLayout>
 
 

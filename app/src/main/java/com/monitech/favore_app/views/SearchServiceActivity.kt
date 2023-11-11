@@ -6,6 +6,8 @@ import com.monitech.favore_app.R
 
 import android.content.Intent
 import android.view.View
+import android.widget.Button
+import android.widget.LinearLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class SearchServiceActivity : AppCompatActivity() {
@@ -13,8 +15,10 @@ class SearchServiceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_service)
 
-        val maintenanceServices = findViewById<View>(R.id.ll_maintenance_services)
-        maintenanceServices.setOnClickListener {
+        val btnServices = findViewById<View>(R.id.btn_list_services)
+
+        val categories = findViewById<View>(R.id.categories)
+        categories.setOnClickListener {
             val intent = Intent(this, SearchResultsActivity::class.java)
             startActivity(intent)
         }
@@ -46,6 +50,11 @@ class SearchServiceActivity : AppCompatActivity() {
                 }
             }
             true
+        }
+
+        btnServices.setOnClickListener {
+            val intent = Intent(this, SearchResultsActivity::class.java)
+            startActivity(intent)
         }
 
     }
