@@ -30,12 +30,8 @@
         android:layout_height="wrap_content"
         android:textSize="18dp"
         android:text="Hi, start earning!"
+        android:paddingVertical="8dp"
         android:paddingHorizontal="16dp"/>
-    <com.google.android.material.search.SearchBar
-        android:id="@+id/searchBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Search services" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -118,43 +114,6 @@
                 android:src="@drawable/baseline_calendar_month_24"
                 android:layout_gravity="right" />
         </LinearLayout>
-        <!--
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="24dp"
-            android:layout_marginVertical="4dp"
-            android:background="@drawable/stroke"
-            android:id="@+id/btnConfigurePortfolio">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="left">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Configure your portfolio"
-                    android:textStyle="bold"
-                    android:textSize="16sp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tell about your work"
-                    android:textSize="12sp" />
-            </LinearLayout>
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/baseline_co_present_24"
-                android:layout_gravity="right" />
-        </LinearLayout>
-        -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -177,7 +136,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="This is a demo function, it will soon be removed"
+                    android:text="Manage your favor posts"
                     android:textSize="12sp" />
             </LinearLayout>
             <View
@@ -189,6 +148,43 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/baseline_co_present_24"
                 android:layout_gravity="right" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="24dp"
+            android:layout_marginVertical="4dp"
+            android:background="@drawable/stroke"
+            android:id="@+id/btnManageFreelancerContracts">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="left">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Manage orders"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Manage your current and past favors"
+                    android:textSize="12sp" />
+            </LinearLayout>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:layout_width="42dp"
+                android:padding="2dp"
+                android:layout_height="42dp"
+                android:layout_gravity="right"
+                android:src="@drawable/manage_contracts" />
         </LinearLayout>
     </LinearLayout>
     <RelativeLayout

@@ -40,7 +40,7 @@ class PreferencesActivity : AppCompatActivity() {
     }
 
     private fun loadPreferences() {
-        val sharedPreferences = getSharedPreferences("FavoreAppPreferences", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("favore", Context.MODE_PRIVATE)
 
         smsSwitch.isChecked = sharedPreferences.getBoolean("sms_preference", false)
         whatsappSwitch.isChecked = sharedPreferences.getBoolean("whatsapp_preference", false)
@@ -49,7 +49,7 @@ class PreferencesActivity : AppCompatActivity() {
     }
 
     private fun savePreferences() {
-        val sharedPreferences = getSharedPreferences("FavoreAppPreferences", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("favore", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
         editor.putBoolean("sms_preference", smsSwitch.isChecked)

@@ -55,26 +55,50 @@ class ServiceDetailsActivity : AppCompatActivity() {
             val requestDescription = requestDescription.text.toString()
             val requestAmount = requestAmount.text.toString().toDouble()
 
+            val sharedPreferences = getSharedPreferences("favore", MODE_PRIVATE)
+            val json = sharedPreferences.getString("user", "")
+            var client: User
+
+            Log.d("JsonData", "Json data: $json")
+
+            if (json?.isNotEmpty() == true) {
+                client = Gson().fromJson(json, User::class.java)
+            } else {
+                client = User(
+                    12,
+                    "ramiro",
+                    "ramiro",
+                    "ramiro",
+                    "ramiro",
+                    "2023-10-28T04:35:04.575663",
+                    "2023-10-28T04:35:04.575668",
+                    "",
+                    true,
+                    "CLIENT"
+                )
+            }
+
+            Log.d("ClientData", "Client data: $client")
+
+
             if (!requestDescription.isNullOrBlank() && !requestAmount.isNaN()) {
                 postService.getPostById(postId) { obtainedPost ->
                     if (obtainedPost != null) {
                         Log.d("GetPostById", "Post obtenido: $obtainedPost")
 
+                        var contract: Contract? = null
+
                         val freelancerRequest = obtainedPost.user
+                        val requestCategory = Category(
+                            1,
+                            "string",
+                            "string"
+                        )
 
                         try {
-                            val sharedPreferences = getSharedPreferences("auth", MODE_PRIVATE)
-                            val json = sharedPreferences.getString("user", "")
-                            val client = Gson().fromJson(json, User::class.java)
 
-                            val requestCategory = Category(
+                            contract = Contract(
                                 1,
-                                "string",
-                                "string"
-                            )
-
-                            val contract = Contract(
-                                null,
                                 requestDescription,
                                 "pending",
                                 "string",
@@ -84,6 +108,8 @@ class ServiceDetailsActivity : AppCompatActivity() {
                                 client,
                                 obtainedPost
                             )
+
+                            Log.d("ContractCreation", "Contract to create: $contract")
 
                             contractService.createContract(contract) { createdContract ->
                                 try {
@@ -113,11 +139,12 @@ class ServiceDetailsActivity : AppCompatActivity() {
                                     ).show()
                                 }
                             }
+
                         } catch (e: Exception) {
                             Log.e("ContractCreationError", "Error creating contract: ${e.message}")
                         }
                     } else {
-                        Log.e("GetPostById", "Couldn't get post with ID: $postId")
+                        Log.e("PostError", "Couldn't get post: $postId")
                     }
                 }
             } else {

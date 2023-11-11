@@ -8,10 +8,10 @@ import com.monitech.favore_app.R
 import com.monitech.favore_app.models.Contract
 import com.squareup.picasso.Picasso
 
-class ContractViewHolder(view: View): RecyclerView.ViewHolder(view) {
+class FreelancerContractViewHolder(view: View): RecyclerView.ViewHolder(view) {
     val conctractTitle = view.findViewById<TextView>(R.id.txtContractTitle)
     val image = view.findViewById<ImageView>(R.id.imgContractFreelancerImg)
-    val contractClientName = view.findViewById<TextView>(R.id.txtContractFreelancerName)
+    val contractFreelancerName = view.findViewById<TextView>(R.id.txtContractFreelancerName)
     val contractPrice = view.findViewById<TextView>(R.id.txtContractPrice)
     val contractDate = view.findViewById<TextView>(R.id.txtContractDateCreated)
     val contractStatus = view.findViewById<TextView>(R.id.txtContractStatus)
@@ -25,7 +25,7 @@ class ContractViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
         if (contractModel.freelancer?.imageUrl != null && contractModel.freelancer?.imageUrl != ""){
             Picasso.get()
-                .load(contractModel.freelancer.imageUrl)
+                .load(contractModel.freelancer?.imageUrl)
                 .into(image);
         }
         else {
@@ -34,7 +34,7 @@ class ContractViewHolder(view: View): RecyclerView.ViewHolder(view) {
                 .into(image);
         }
 
-        contractClientName.text = contractModel.client?.name.toString() + " " + contractModel.client?.lastName.toString();
+        contractFreelancerName.text = contractModel.freelancer?.name.toString() + " " + contractModel.freelancer?.lastName.toString();
         contractPrice.text = "USD "+ contractModel.ammount.toString();
         contractModel.createdAt?.let {
             contractDate.text = "Order date " + it.substring(0,10)

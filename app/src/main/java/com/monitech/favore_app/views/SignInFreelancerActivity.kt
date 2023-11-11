@@ -18,6 +18,9 @@ class SignInFreelancerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in_freelancer)
 
+        val sharedPreferences = getSharedPreferences("favore", Context.MODE_PRIVATE)
+        val storedUser = Gson().toJson(null)
+
         val btnReturn: ImageButton = findViewById(R.id.btnReturn)
         btnReturn.setOnClickListener(){
             finish()
@@ -53,7 +56,7 @@ class SignInFreelancerActivity : AppCompatActivity() {
 
                         // Save user data to shared preferences
                         val storedUser = Gson().toJson(user)
-                        val sharedPreferences = getSharedPreferences("auth", Context.MODE_PRIVATE)
+                        val sharedPreferences = getSharedPreferences("favore", Context.MODE_PRIVATE)
                         sharedPreferences.edit().putString("user", storedUser).apply()
 
                         startActivity(instance)
