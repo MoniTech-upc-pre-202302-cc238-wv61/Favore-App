@@ -23,7 +23,7 @@ class ContractViewHolder(view: View): RecyclerView.ViewHolder(view) {
             conctractTitle.text = contractModel.post.title.toString();
         }
 
-        if (contractModel.freelancer.imageUrl != null && contractModel.freelancer.imageUrl != ""){
+        if (contractModel.freelancer?.imageUrl != null && contractModel.freelancer?.imageUrl != ""){
             Picasso.get()
                 .load(contractModel.freelancer.imageUrl)
                 .into(image);
@@ -34,7 +34,7 @@ class ContractViewHolder(view: View): RecyclerView.ViewHolder(view) {
                 .into(image);
         }
 
-        contractClientName.text = contractModel.client.name.toString() + " " + contractModel.client.lastName.toString();
+        contractClientName.text = contractModel.client?.name.toString() + " " + contractModel.client?.lastName.toString();
         contractPrice.text = "USD "+ contractModel.ammount.toString();
         contractModel.createdAt?.let {
             contractDate.text = "Order date " + it.substring(0,10)

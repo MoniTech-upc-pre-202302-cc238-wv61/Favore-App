@@ -10,18 +10,22 @@ import retrofit2.Response
 class ContractService {
     private val retrofit = ServiceBuilder.buildService(ContractHolderApi::class.java)
 
-    fun createContract(contract: Contract, onResult: (Contract?) -> Unit){
-        retrofit.createContract(contract).enqueue(
-            object: Callback<Contract> {
-                override fun onResponse( call: Call<Contract>, response: Response<Contract>) {
-                    val addedContract = response.body()
-                    onResult(addedContract)
+    fun createContract(contract: Contract?, onResult: (Contract?) -> Unit){
+        if (contract != null) {
+            retrofit.createContract(contract).enqueue(
+                object: Callback<Contract> {
+                    override fun onResponse(call: Call<Contract>, response: Response<Contract>) {
+                        val addedContract = response.body()
+                        onResult(addedContract)
+                    }
+                    override fun onFailure(call: Call<Contract>, t: Throwable) {
+                        t?.printStackTrace()
+                    }
                 }
-                override fun onFailure(call: Call<Contract>, t: Throwable) {
-                    t?.printStackTrace()
-                }
-            }
-        )
+            )
+        } else {
+            onResult(null)
+        }
     }
 
     fun getAllContracts(onResult: (List<Contract>) -> Unit){

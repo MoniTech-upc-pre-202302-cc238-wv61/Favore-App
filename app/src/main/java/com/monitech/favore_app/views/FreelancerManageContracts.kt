@@ -35,7 +35,7 @@ class FreelancerManageContracts : AppCompatActivity() {
                 val json = sharedPreferences.getString("user", "")
                 val user = Gson().fromJson(json, User::class.java)
 
-                val filteredContracts = contracts.filter { contract -> contract.client.id == user.id }.reversed()
+                val filteredContracts = contracts.filter { contract -> contract.client?.id == user.id }.reversed()
                 val textNoOrder: TextView = findViewById(R.id.txtNoFreelancerOrders)
 
                 if (filteredContracts.isEmpty()) {
