@@ -5,6 +5,8 @@ import android.content.Intent
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
@@ -16,6 +18,11 @@ import com.monitech.favore_app.dto.UserLoginDTO
 import com.monitech.favore_app.services.LoginService
 
 class SignInClientActivity : AppCompatActivity() {
+
+    private fun isValidEmail(email: String): Boolean {
+        val emailRegex = "^[A-Za-z](.*)([@]{1})(.{1,})(\\.)(.{1,})"
+        return email.matches(emailRegex.toRegex())
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in_client)
@@ -45,12 +52,29 @@ class SignInClientActivity : AppCompatActivity() {
             startActivity(instance)
         }
 
+        val emailField: TextInputLayout = findViewById(R.id.emailTextField)
+        emailField.editText?.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                emailField.error = null
+            }
+
+            override fun afterTextChanged(s: Editable) {}
+        })
+
         val btnSignIn: Button = findViewById(R.id.btnSignIn)
         btnSignIn.setOnClickListener(){
 
             //get the value of the text field inputs
-            val emailField: TextInputLayout = findViewById(R.id.emailTextField)
+
             val passwordField: TextInputLayout = findViewById(R.id.passwordTextField)
+            val email = emailField.editText?.text.toString()
+
+            if (!isValidEmail(email)) {
+                emailField.error = "Invalid email format"
+                return@setOnClickListener
+            }
 
             val userLoginDTO = UserLoginDTO(
                 emailField.editText?.text.toString(),

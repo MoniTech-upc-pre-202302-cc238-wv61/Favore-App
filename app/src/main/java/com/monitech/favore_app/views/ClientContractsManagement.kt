@@ -94,7 +94,7 @@ class ClientContractsManagement : AppCompatActivity() {
                 }
 
                 R.id.navigation_user -> {
-                    startActivity(Intent(this, SignInClientActivity::class.java))
+                    startActivity(Intent(this, UserProfileActivity::class.java))
                     finish()
                 }
             }

@@ -14,6 +14,6 @@ class UserFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        return inflater.inflate(R.layout.activity_sign_in_client, container, false)
+        return inflater.inflate(R.layout.activity_user_profile, container, false)
     }
 }

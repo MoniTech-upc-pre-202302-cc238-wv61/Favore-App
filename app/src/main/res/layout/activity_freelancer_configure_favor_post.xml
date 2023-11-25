@@ -88,4 +88,13 @@
         android:text="Save changes"
         android:layout_margin="8dp"
         android:padding="8dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <include layout="@layout/activity_navbar" />
+
+    </RelativeLayout>
 </LinearLayout>
