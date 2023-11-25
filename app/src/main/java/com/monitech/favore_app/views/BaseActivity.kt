@@ -32,7 +32,7 @@ open class BaseActivity : AppCompatActivity() {
     protected fun configureNavBar(userType: String) {
         val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigation.menu.clear()
-        if (userType == "Freelancer") {
+        if (userType == "FREELANCER") {
             bottomNavigation.inflateMenu(R.menu.menu_freelancer)
         } else {
             bottomNavigation.inflateMenu(R.menu.menu_client)
