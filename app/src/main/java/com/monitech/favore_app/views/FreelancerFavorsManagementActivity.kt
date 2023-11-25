@@ -16,10 +16,11 @@ import com.monitech.favore_app.models.Post
 import com.monitech.favore_app.models.User
 import com.monitech.favore_app.services.PostService
 
-class FreelancerFavorsManagementActivity : AppCompatActivity() {
+class FreelancerFavorsManagementActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_freelancer_favors_management)
+        loadUserAndConfigureNavBar()
 
         // Service
         val postService = PostService()

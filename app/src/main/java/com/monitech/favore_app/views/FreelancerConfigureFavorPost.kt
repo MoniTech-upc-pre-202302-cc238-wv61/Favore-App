@@ -16,10 +16,11 @@ import com.monitech.favore_app.models.User
 import com.monitech.favore_app.services.PostService
 import org.w3c.dom.Text
 
-class FreelancerConfigureFavorPost : AppCompatActivity() {
+class FreelancerConfigureFavorPost : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_freelancer_configure_favor_post)
+        loadUserAndConfigureNavBar()
 
         val post_id = intent.getIntExtra("post_id", 0)
         val title = intent.getStringExtra("title")

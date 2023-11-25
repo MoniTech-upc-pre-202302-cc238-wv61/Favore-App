@@ -14,10 +14,11 @@ import com.monitech.favore_app.models.Contract
 import com.monitech.favore_app.models.User
 import com.monitech.favore_app.services.ContractService
 
-class FreelancerManageContracts : AppCompatActivity() {
+class FreelancerManageContracts : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_freelancer_manage_contracts)
+        loadUserAndConfigureNavBar()
 
         val contractService = ContractService()
 

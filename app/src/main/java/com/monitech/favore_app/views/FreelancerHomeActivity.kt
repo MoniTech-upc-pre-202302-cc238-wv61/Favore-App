@@ -16,6 +16,7 @@ class FreelancerHomeActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_freelancer_home)
+        loadUserAndConfigureNavBar()
         val btnAddNewFavor:LinearLayout = findViewById(R.id.btnAddNewFavor)
         val btnConfigureAvailability:LinearLayout = findViewById(R.id.btnConfigureAvailability)
 

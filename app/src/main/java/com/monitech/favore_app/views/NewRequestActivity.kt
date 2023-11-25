@@ -13,10 +13,11 @@ import com.monitech.favore_app.services.ContractService
 import java.text.SimpleDateFormat
 import java.util.Date
 
-class NewRequestActivity : AppCompatActivity() {
+class NewRequestActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_request)
+        loadUserAndConfigureNavBar()
 
         val contractService = ContractService()
 

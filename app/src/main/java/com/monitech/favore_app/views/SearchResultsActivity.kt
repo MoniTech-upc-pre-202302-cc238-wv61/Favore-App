@@ -15,12 +15,13 @@ import com.monitech.favore_app.adapter.FavorPostAdapter
 import com.monitech.favore_app.models.Post
 import com.monitech.favore_app.services.PostService
 
-class SearchResultsActivity : AppCompatActivity() {
+class SearchResultsActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_results)
+        loadUserAndConfigureNavBar()
 
         // Service
         val postService = PostService()

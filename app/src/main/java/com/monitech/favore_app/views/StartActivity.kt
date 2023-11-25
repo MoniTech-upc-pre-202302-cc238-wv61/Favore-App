@@ -6,10 +6,11 @@ import android.os.Bundle
 import android.widget.Button
 import com.monitech.favore_app.R
 
-class StartActivity : AppCompatActivity() {
+class StartActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
+        loadUserAndConfigureNavBar()
 
         val btnSignIn: Button = findViewById(R.id.btnSignIn)
 

@@ -20,10 +20,11 @@ import com.monitech.favore_app.models.User
 import com.monitech.favore_app.services.ContractService
 import com.monitech.favore_app.services.PostService
 
-class ServiceDetailsActivity : AppCompatActivity() {
+class ServiceDetailsActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_service_details)
+        loadUserAndConfigureNavBar()
 
         val backButton = findViewById<ImageButton>(R.id.backButton)
 
