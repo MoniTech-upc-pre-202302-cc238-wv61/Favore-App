@@ -11,10 +11,11 @@ import android.widget.Button
 import android.widget.LinearLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class SearchServiceActivity : AppCompatActivity() {
+class SearchServiceActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_service)
+        loadUserAndConfigureNavBar()
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 

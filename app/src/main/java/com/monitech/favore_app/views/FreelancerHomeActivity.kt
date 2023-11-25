@@ -13,10 +13,11 @@ import com.google.gson.Gson
 import com.monitech.favore_app.R
 import com.monitech.favore_app.models.User
 
-class FreelancerHomeActivity : AppCompatActivity() {
+class FreelancerHomeActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_freelancer_home)
+        loadUserAndConfigureNavBar()
         val btnAddNewFavor:LinearLayout = findViewById(R.id.btnAddNewFavor)
         val btnConfigureAvailability:LinearLayout = findViewById(R.id.btnConfigureAvailability)
 

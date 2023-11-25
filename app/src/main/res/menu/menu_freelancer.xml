@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home_freelancer"
+        android:icon="@drawable/homeicon"
+        android:title="Home" />
+    <item
+        android:id="@+id/navigation_orders_freelancer"
+        android:icon="@drawable/ordersicon"
+        android:title="Orders" />
+    <item
+        android:id="@+id/navitagion_favors_freelancer"
+        android:icon="@drawable/inboxicon"
+        android:title="Favors" />
+    <item
+        android:id="@+id/navigation_user"
+        android:icon="@drawable/personicon"
+        android:title="User" />
+</menu>

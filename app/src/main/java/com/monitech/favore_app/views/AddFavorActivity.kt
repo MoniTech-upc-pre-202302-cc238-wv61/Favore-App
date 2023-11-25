@@ -23,10 +23,11 @@ import com.monitech.favore_app.models.User
 import com.monitech.favore_app.services.PostService
 import com.squareup.picasso.Picasso
 
-class AddFavorActivity : AppCompatActivity() {
+class AddFavorActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_favor)
+        loadUserAndConfigureNavBar()
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 

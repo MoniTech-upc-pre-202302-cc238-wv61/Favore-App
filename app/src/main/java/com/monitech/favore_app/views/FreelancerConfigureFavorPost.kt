@@ -17,10 +17,11 @@ import com.monitech.favore_app.models.User
 import com.monitech.favore_app.services.PostService
 import org.w3c.dom.Text
 
-class FreelancerConfigureFavorPost : AppCompatActivity() {
+class FreelancerConfigureFavorPost : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_freelancer_configure_favor_post)
+        loadUserAndConfigureNavBar()
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 

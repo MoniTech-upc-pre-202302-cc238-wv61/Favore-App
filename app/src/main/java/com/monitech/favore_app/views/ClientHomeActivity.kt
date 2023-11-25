@@ -21,11 +21,16 @@ import com.monitech.favore_app.models.User
 import com.monitech.favore_app.services.PostService
 import com.squareup.picasso.Picasso
 
-class ClientHomeActivity : AppCompatActivity() {
+class ClientHomeActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_client_home)
+        loadUserAndConfigureNavBar()
+
+        val sharedPreferences = getSharedPreferences("favore", MODE_PRIVATE)
+        val json = sharedPreferences.getString("user", "")
+        val user = Gson().fromJson(json, User::class.java)
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
@@ -35,10 +40,6 @@ class ClientHomeActivity : AppCompatActivity() {
             val intent = Intent(this, SearchServiceActivity::class.java)
             startActivity(intent)
         }
-
-        val sharedPreferences = getSharedPreferences("favore", MODE_PRIVATE)
-        val json = sharedPreferences.getString("user", "")
-        val user = Gson().fromJson(json, User::class.java)
 
         val txtHello = findViewById<TextView>(R.id.txtHelloClient)
 

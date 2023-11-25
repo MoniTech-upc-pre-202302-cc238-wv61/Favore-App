@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.widget.Switch
 import com.monitech.favore_app.R
 
-class PreferencesActivity : AppCompatActivity() {
+class PreferencesActivity : BaseActivity() {
     private lateinit var smsSwitch: Switch
     private lateinit var whatsappSwitch: Switch
     private lateinit var emailSwitch: Switch
@@ -15,6 +15,7 @@ class PreferencesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_preferences)
+        loadUserAndConfigureNavBar()
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 

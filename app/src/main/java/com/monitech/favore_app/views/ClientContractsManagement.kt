@@ -18,10 +18,11 @@ import com.monitech.favore_app.models.User
 import com.monitech.favore_app.services.ContractService
 import org.w3c.dom.Text
 
-class ClientContractsManagement : AppCompatActivity() {
+class ClientContractsManagement : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_client_contracts_management)
+        loadUserAndConfigureNavBar()
 
         val contractService = ContractService()
 
