@@ -29,7 +29,6 @@ class ClientHomeActivity : BaseActivity() {
         val sharedPreferences = getSharedPreferences("favore", MODE_PRIVATE)
         val json = sharedPreferences.getString("user", "")
         val user = Gson().fromJson(json, User::class.java)
-        configureNavBar(user.type)
 
         val searchBar = findViewById<SearchBar>(R.id.searchBar)
 

@@ -3,12 +3,25 @@ package com.monitech.favore_app.views
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.gson.Gson
 import com.monitech.favore_app.R
+import com.monitech.favore_app.models.User
 
 open class BaseActivity : AppCompatActivity() {
 
+    lateinit var user: User
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val sharedPreferences = getSharedPreferences("favore", MODE_PRIVATE)
+        val json = sharedPreferences.getString("user", "")
+        if (json != null) {
+            if (json.isNotEmpty()) {
+                user = Gson().fromJson(json, User::class.java)
+                configureNavBar(user.type)
+            } else {
+            }
+        }
     }
 
     protected fun configureNavBar(userType: String) {
