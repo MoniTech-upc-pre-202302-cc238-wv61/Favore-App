@@ -9,7 +9,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="#FFFFFF"
-        app:menu="@drawable/bottom_nav_menu"
         app:labelVisibilityMode="labeled">
 
         <FrameLayout

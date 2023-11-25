@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_home_client"
         android:icon="@drawable/homeicon"
         android:title="Home" />
     <item
-        android:id="@+id/navigation_orders"
+        android:id="@+id/navigation_orders_client"
         android:icon="@drawable/ordersicon"
-        android:title="Client" />
+        android:title="Orders" />
     <item
         android:id="@+id/navigation_search"
         android:icon="@drawable/searchicon"
         android:title="Search" />
-    <item
-        android:id="@+id/navigation_inbox"
-        android:icon="@drawable/inboxicon"
-        android:title="Inbox" />
     <item
         android:id="@+id/navigation_user"
         android:icon="@drawable/personicon"
