@@ -2,6 +2,7 @@ package com.monitech.favore_app.views
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -36,6 +37,19 @@ class UserProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
+        val btnGoPreferences: TextView = findViewById(R.id.txtPreferences)
+        btnGoPreferences.setOnClickListener {
+            val instance = Intent(this, PreferencesActivity::class.java)
+            startActivity(instance)
+        }
+
+        val btnGoTermsAndConditions: TextView = findViewById(R.id.txtTermsAndConditions)
+        btnGoTermsAndConditions.setOnClickListener {
+            val instance = Intent(this, TermsAndConditionsActivity::class.java)
+            startActivity(instance)
+        }
 
         val txtSignOut: TextView = findViewById(R.id.txtSignOut)
         txtSignOut.setOnClickListener {

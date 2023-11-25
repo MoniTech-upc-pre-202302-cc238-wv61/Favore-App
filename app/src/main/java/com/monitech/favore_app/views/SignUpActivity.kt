@@ -41,6 +41,12 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(instance)
         }
 
+        val btnGoTermsAndConditions: TextView = findViewById(R.id.txtTermsAndConditions)
+        btnGoTermsAndConditions.setOnClickListener {
+            val instance = Intent(this, TermsAndConditionsActivity::class.java)
+            startActivity(instance)
+        }
+
         val btnClient: Button = findViewById(R.id.btnClient)
         val btnFreelancer: Button = findViewById(R.id.btnFreelancer)
 
