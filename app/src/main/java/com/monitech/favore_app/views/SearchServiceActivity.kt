@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.monitech.favore_app.R
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
@@ -15,6 +16,9 @@ class SearchServiceActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_service)
         loadUserAndConfigureNavBar()
+
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
 
         val btnServices = findViewById<View>(R.id.btn_list_services)
 

@@ -2,6 +2,7 @@ package com.monitech.favore_app.views
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -30,6 +31,8 @@ class ClientHomeActivity : BaseActivity() {
         val sharedPreferences = getSharedPreferences("favore", MODE_PRIVATE)
         val json = sharedPreferences.getString("user", "")
         val user = Gson().fromJson(json, User::class.java)
+
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
         val searchBar = findViewById<SearchBar>(R.id.searchBar)
 

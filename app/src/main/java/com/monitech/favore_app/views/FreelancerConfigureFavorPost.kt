@@ -2,6 +2,7 @@ package com.monitech.favore_app.views
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -21,6 +22,9 @@ class FreelancerConfigureFavorPost : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_freelancer_configure_favor_post)
         loadUserAndConfigureNavBar()
+
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
 
         val post_id = intent.getIntExtra("post_id", 0)
         val title = intent.getStringExtra("title")

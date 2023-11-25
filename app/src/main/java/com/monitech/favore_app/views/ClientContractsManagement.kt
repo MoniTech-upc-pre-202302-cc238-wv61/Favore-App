@@ -2,6 +2,7 @@ package com.monitech.favore_app.views
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
@@ -27,6 +28,7 @@ class ClientContractsManagement : BaseActivity() {
 
         val btnBack: ImageButton = findViewById(R.id.btnBack)
 
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
         val contractsRecycler: RecyclerView = findViewById(R.id.recyclerClientContracts)
         val contracts: List<Contract>

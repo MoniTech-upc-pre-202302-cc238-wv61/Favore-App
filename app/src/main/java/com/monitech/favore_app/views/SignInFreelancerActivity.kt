@@ -2,6 +2,7 @@ package com.monitech.favore_app.views
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -18,6 +19,8 @@ class SignInFreelancerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in_freelancer)
 
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
         val sharedPreferences = getSharedPreferences("favore", Context.MODE_PRIVATE)
         val storedUser = Gson().toJson(null)
 
@@ -29,6 +32,12 @@ class SignInFreelancerActivity : AppCompatActivity() {
         val btnSignUp: Button = findViewById(R.id.btnSignUp)
         btnSignUp.setOnClickListener(){
             val instance = Intent(this, SignUpActivity::class.java)
+            startActivity(instance)
+        }
+
+        val btnGoTermsAndConditions: TextView = findViewById(R.id.txtTermsAndConditions)
+        btnGoTermsAndConditions.setOnClickListener {
+            val instance = Intent(this, TermsAndConditionsActivity::class.java)
             startActivity(instance)
         }
 

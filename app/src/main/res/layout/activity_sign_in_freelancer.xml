@@ -115,6 +115,7 @@
             android:id="@+id/btnSignIn"/>
 
         <TextView
+            android:id="@+id/txtTermsAndConditions"
             android:paddingTop="180dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

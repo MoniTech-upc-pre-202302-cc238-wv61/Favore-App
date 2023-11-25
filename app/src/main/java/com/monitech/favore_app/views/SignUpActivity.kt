@@ -2,6 +2,7 @@ package com.monitech.favore_app.views
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -20,6 +21,8 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
         val sharedPreferences = getSharedPreferences("favore", Context.MODE_PRIVATE)
         val storedUser = Gson().toJson(null)
 
@@ -35,6 +38,12 @@ class SignUpActivity : AppCompatActivity() {
         val btnSignIn: Button = findViewById(R.id.btnSignIn)
         btnSignIn.setOnClickListener(){
             val instance = Intent(this, SignInClientActivity::class.java)
+            startActivity(instance)
+        }
+
+        val btnGoTermsAndConditions: TextView = findViewById(R.id.txtTermsAndConditions)
+        btnGoTermsAndConditions.setOnClickListener {
+            val instance = Intent(this, TermsAndConditionsActivity::class.java)
             startActivity(instance)
         }
 

@@ -1,6 +1,7 @@
 package com.monitech.favore_app.views
 
 import android.content.Context
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
@@ -19,6 +20,8 @@ class FreelancerManageContracts : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_freelancer_manage_contracts)
         loadUserAndConfigureNavBar()
+
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
         val contractService = ContractService()
 

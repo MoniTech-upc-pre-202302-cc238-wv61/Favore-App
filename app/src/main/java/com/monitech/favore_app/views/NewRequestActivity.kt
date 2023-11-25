@@ -1,5 +1,6 @@
 package com.monitech.favore_app.views
 
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -18,6 +19,8 @@ class NewRequestActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_request)
         loadUserAndConfigureNavBar()
+
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
         val contractService = ContractService()
 

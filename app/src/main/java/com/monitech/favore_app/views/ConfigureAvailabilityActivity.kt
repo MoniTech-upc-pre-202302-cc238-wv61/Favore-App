@@ -1,6 +1,7 @@
 package com.monitech.favore_app.views
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -13,6 +14,8 @@ class ConfigureAvailabilityActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_configure_availability)
         loadUserAndConfigureNavBar()
+
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
         val btnSaveAvailabilityChanges:Button = findViewById(R.id.btnSaveAvailabilityChanges)
 

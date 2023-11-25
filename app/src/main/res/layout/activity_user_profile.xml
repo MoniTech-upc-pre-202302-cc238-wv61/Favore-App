@@ -114,6 +114,7 @@ tools:context=".views.UserProfileActivity">
                 android:textSize="24sp"
                 android:textStyle="bold"/>
             <TextView
+                android:id="@+id/txtPreferences"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
@@ -147,6 +148,7 @@ tools:context=".views.UserProfileActivity">
                 android:textColor="#000000"
                 android:textSize="18sp"/>
             <TextView
+                android:id="@+id/txtTermsAndConditions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"

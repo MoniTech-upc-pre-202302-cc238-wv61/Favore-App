@@ -1,6 +1,7 @@
 package com.monitech.favore_app.views
 
 import android.content.Context
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Switch
@@ -15,6 +16,8 @@ class PreferencesActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_preferences)
         loadUserAndConfigureNavBar()
+
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
         smsSwitch = findViewById(R.id.smsSwitch)
         whatsappSwitch = findViewById(R.id.whatsappSwitch)
