@@ -20,11 +20,16 @@ import com.monitech.favore_app.models.User
 import com.monitech.favore_app.services.PostService
 import com.squareup.picasso.Picasso
 
-class ClientHomeActivity : AppCompatActivity() {
+class ClientHomeActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_client_home)
+
+        val sharedPreferences = getSharedPreferences("favore", MODE_PRIVATE)
+        val json = sharedPreferences.getString("user", "")
+        val user = Gson().fromJson(json, User::class.java)
+        configureNavBar(user.type)
 
         val searchBar = findViewById<SearchBar>(R.id.searchBar)
 
@@ -32,10 +37,6 @@ class ClientHomeActivity : AppCompatActivity() {
             val intent = Intent(this, SearchServiceActivity::class.java)
             startActivity(intent)
         }
-
-        val sharedPreferences = getSharedPreferences("favore", MODE_PRIVATE)
-        val json = sharedPreferences.getString("user", "")
-        val user = Gson().fromJson(json, User::class.java)
 
         val txtHello = findViewById<TextView>(R.id.txtHelloClient)
 
