@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import com.monitech.favore_app.R
 
-class UserProfileActivity : AppCompatActivity() {
+class UserProfileActivity : BaseActivity() {
 
     private fun showSignOutDialog() {
         val dialogBuilder = AlertDialog.Builder(this)
@@ -36,6 +36,7 @@ class UserProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
+        loadUserAndConfigureNavBar()
 
         val txtSignOut: TextView = findViewById(R.id.txtSignOut)
         txtSignOut.setOnClickListener {
