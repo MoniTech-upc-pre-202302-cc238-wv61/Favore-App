@@ -1,6 +1,7 @@
 package com.monitech.favore_app.views
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -18,6 +19,8 @@ class FreelancerHomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_freelancer_home)
         val btnAddNewFavor:LinearLayout = findViewById(R.id.btnAddNewFavor)
         val btnConfigureAvailability:LinearLayout = findViewById(R.id.btnConfigureAvailability)
+
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
         val btnViewFreelancerFavors:LinearLayout = findViewById(R.id.btnViewFreelancerFavors)
         val btnManageFreelancerContracts:LinearLayout = findViewById(R.id.btnManageFreelancerContracts)
