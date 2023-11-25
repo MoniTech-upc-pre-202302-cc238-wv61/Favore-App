@@ -48,6 +48,12 @@ class SignInClientActivity : AppCompatActivity() {
             startActivity(instance)
         }
 
+        val btnGoTermsAndConditions: TextView = findViewById(R.id.txtTermsAndConditions)
+        btnGoTermsAndConditions.setOnClickListener {
+            val instance = Intent(this, TermsAndConditionsActivity::class.java)
+            startActivity(instance)
+        }
+
         val emailField: TextInputLayout = findViewById(R.id.emailTextField)
         emailField.editText?.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}

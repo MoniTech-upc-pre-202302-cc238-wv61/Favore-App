@@ -37,6 +37,18 @@ class UserProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
 
+        val btnGoPreferences: TextView = findViewById(R.id.txtPreferences)
+        btnGoPreferences.setOnClickListener {
+            val instance = Intent(this, PreferencesActivity::class.java)
+            startActivity(instance)
+        }
+
+        val btnGoTermsAndConditions: TextView = findViewById(R.id.txtTermsAndConditions)
+        btnGoTermsAndConditions.setOnClickListener {
+            val instance = Intent(this, TermsAndConditionsActivity::class.java)
+            startActivity(instance)
+        }
+
         val txtSignOut: TextView = findViewById(R.id.txtSignOut)
         txtSignOut.setOnClickListener {
             showSignOutDialog()
