@@ -14,9 +14,9 @@ tools:context=".views.UserProfileActivity">
     android:orientation="horizontal"
     android:paddingHorizontal="16dp">
     <ImageView
-        android:layout_width="24dp"
+        android:id="@+id/profilePicture"
+        android:layout_width="32dp"
         android:layout_height="match_parent"
-        android:src="@drawable/favoreicon"
         android:layout_marginEnd="8dp"/>
     <TextView
         android:id="@+id/txtHelloClient"

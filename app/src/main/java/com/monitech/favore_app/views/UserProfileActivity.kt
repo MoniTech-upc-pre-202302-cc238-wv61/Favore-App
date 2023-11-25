@@ -5,9 +5,13 @@ import android.content.Intent
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import com.google.gson.Gson
 import com.monitech.favore_app.R
+import com.monitech.favore_app.models.User
+import com.squareup.picasso.Picasso
 
 class UserProfileActivity : BaseActivity() {
 
@@ -39,6 +43,35 @@ class UserProfileActivity : BaseActivity() {
         setContentView(R.layout.activity_user_profile)
         loadUserAndConfigureNavBar()
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
+        val profilePicture: ImageView = findViewById(R.id.profilePicture)
+        val profileImg: ImageView = findViewById(R.id.imgProfile)
+
+        val sharedPreferences = getSharedPreferences("favore", MODE_PRIVATE)
+        val json = sharedPreferences.getString("user", "")
+        val user = Gson().fromJson(json, User::class.java)
+
+        if (user.imageUrl != null && user.imageUrl != ""){
+            Picasso.get()
+                .load(user.imageUrl)
+                .into(profilePicture);
+        }
+        else {
+            Picasso.get()
+                .load("https://cdn-icons-png.flaticon.com/512/10015/10015419.png")
+                .into(profilePicture);
+        }
+
+        if (user.imageUrl != null && user.imageUrl != ""){
+            Picasso.get()
+                .load(user.imageUrl)
+                .into(profileImg);
+        }
+        else {
+            Picasso.get()
+                .load("https://cdn-icons-png.flaticon.com/512/10015/10015419.png")
+                .into(profileImg);
+        }
 
         val btnGoPreferences: TextView = findViewById(R.id.txtPreferences)
         btnGoPreferences.setOnClickListener {

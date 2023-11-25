@@ -69,9 +69,6 @@
             android:name=".views.PreferencesActivity"
             android:exported="false" />
         <activity
-            android:name=".views.ProfileActivity"
-            android:exported="false" />
-        <activity
             android:name=".views.SignInClientActivity"
             android:exported="false" />
         <activity
