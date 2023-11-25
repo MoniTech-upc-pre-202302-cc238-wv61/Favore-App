@@ -13,6 +13,9 @@ open class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+    }
+
+    protected fun loadUserAndConfigureNavBar() {
         val sharedPreferences = getSharedPreferences("favore", MODE_PRIVATE)
         val json = sharedPreferences.getString("user", "")
         if (json != null) {
@@ -20,6 +23,7 @@ open class BaseActivity : AppCompatActivity() {
                 user = Gson().fromJson(json, User::class.java)
                 configureNavBar(user.type)
             } else {
+                finish()
             }
         }
     }
