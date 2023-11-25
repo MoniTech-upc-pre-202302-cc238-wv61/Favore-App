@@ -100,36 +100,5 @@ class ClientHomeActivity : BaseActivity() {
             txtNoFavorsToShow.isGone = false
         }
 
-
-
-        val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
-
-        bottomNavigation.selectedItemId = R.id.navigation_home
-        bottomNavigation.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.navigation_home -> {
-                    startActivity(Intent(this, ClientHomeActivity::class.java))
-                    finish()
-                }
-                R.id.navigation_orders -> {
-//                    startActivity(Intent(this, FreelancerFavorsManagementActivity::class.java))
-                    startActivity(Intent(this, ClientContractsManagement::class.java))
-                    finish()
-                }
-                R.id.navigation_search -> {
-                    startActivity(Intent(this, SearchServiceActivity::class.java))
-                    finish()
-                }
-                R.id.navigation_inbox -> {
-                    startActivity(Intent(this, AddFavorActivity::class.java))
-                    finish()
-                }
-                R.id.navigation_user -> {
-                    startActivity(Intent(this, UserProfileActivity::class.java))
-                    finish()
-                }
-            }
-            true
-        }
     }
 }

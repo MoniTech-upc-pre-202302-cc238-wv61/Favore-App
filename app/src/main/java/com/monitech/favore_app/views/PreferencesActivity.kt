@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.Switch
 import com.monitech.favore_app.R
 
@@ -12,6 +13,7 @@ class PreferencesActivity : BaseActivity() {
     private lateinit var whatsappSwitch: Switch
     private lateinit var emailSwitch: Switch
     private lateinit var pushNotificationsSwitch: Switch
+    private lateinit var btnBack: ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_preferences)
@@ -23,6 +25,7 @@ class PreferencesActivity : BaseActivity() {
         whatsappSwitch = findViewById(R.id.whatsappSwitch)
         emailSwitch = findViewById(R.id.emailSwitch)
         pushNotificationsSwitch = findViewById(R.id.pushNotificationsSwitch)
+        btnBack = findViewById(R.id.btnBack)
 
         loadPreferences()
 
@@ -40,6 +43,10 @@ class PreferencesActivity : BaseActivity() {
 
         pushNotificationsSwitch.setOnCheckedChangeListener { _, isChecked ->
             savePreferences()
+        }
+
+        btnBack.setOnClickListener {
+            finish()
         }
     }
 
